@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GENUINE GRACE</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+
+
+<!-- ===== Intro Screen ===== -->
+<div id="intro">
+<video
+id="intro-video"
+src="img/back.mp4"
+autoplay
+muted
+playsinline
+></video>
+
+
+<div class="intro-text">GENUINE GRACE</div>
+</div>
+
+<!-- 背景動画 -->
+<video id="bg-video" autoplay muted loop playsinline>
+<source src="img/back.mp4" type="video/mp4">
+</video>
+<!-- ===== Header ===== -->
+<header class="header">
+<div class="logo">Genuine Grace</div>
+
+
+<!-- ハンバーガー -->
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+
+<!-- モバイルナビ -->
+<nav class="mobile-nav" id="mobileNav">
+<ul>
+<li><a href="index.html">TOP</a></li>
+<li><a href="news.html">NEWS</a></li>
+<li><a href="bio.html">BIO</a></li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="discography.html">DISCOGRAPHY</a></li>
+</ul>
+</nav>
+</header>
+
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+<img src="img/hero-1.png" class="hero-img active" alt="">
+<img src="img/hero-2.png" class="hero-img" alt="">
+<img src="img/hero-3.png" class="hero-img" alt="">
+</section>
+
+
+<!-- ===== YouTube ===== -->
+<section class="youtube">
+<div class="youtube-grid">
+<div class="yt">
+<iframe src="https://www.youtube.com/embed/pyl54VhcNn8" allowfullscreen></iframe>
+</div>
+<div class="yt">
+<iframe src="https://www.youtube.com/embed/DdfaDQmENGs" allowfullscreen></iframe>
+</div>
+<div class="yt">
+<iframe src="https://www.youtube.com/embed/epGFcqbS3xU" allowfullscreen></iframe>
+</div>
+</div>
+</section>
+
+
+<!-- ===== Sections ===== -->
+<section id="news" class="section">
+<h2>NEWS</h2>
+<p>最新情報をお届けします。</p>
+<a class="all-btn" href="news.html">ALL</a>
+</section>
+
+
+<section id="bio" class="section">
+<h2>BIO</h2>
+<p>アーティストプロフィール。</p>
+<a class="all-btn" href="bio.html">ALL</a>
+</section>
+
+
+<section id="gallery" class="section">
+  <h2>GALLERY</h2>
+
+  <div class="gallery-grid">
+      <img src="img/gallery/thumb-01.jpg" data-full="img/gallery/photo-01.jpg">
+      <img src="img/gallery/thumb-02.jpg" data-full="img/gallery/photo-02.jpg">
+      <img src="img/gallery/thumb-03.jpg" data-full="img/gallery/photo-03.jpg">
+      <img src="img/gallery/thumb-04.jpg" data-full="img/gallery/photo-04.jpg">
+      <img src="img/gallery/thumb-05.jpg" data-full="img/gallery/photo-05.jpg">
+      <img src="img/gallery/thumb-06.jpg" data-full="img/gallery/photo-06.jpg">
+  </div>
+
+  <a href="gallery.html" class="all-btn">ALL</a>
+</section>
+
+<section id="discography" class="section">
+<h2>DISCOGRAPHY</h2>
+<p>作品一覧。</p>
+<a class="all-btn" href="discography.html">ALL</a>
+</section>
+
+
+<script src="js/main.js"></script>
+<!-- Scroll to Top -->
+<div id="toTop" aria-label="ページトップへ">
+<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+<path d="M12 5l-7 7h4v7h6v-7h4z" />
+</svg>
+</div>
+<!-- ===== Gallery Modal ===== -->
+<div id="gallery-modal">
+<span class="modal-close">&times;</span>
+
+
+<button class="modal-nav prev" aria-label="前へ">‹</button>
+<img id="modal-img" src="" alt="">
+<button class="modal-nav next" aria-label="次へ">›</button>
+</div>
+</body>
+</html>
