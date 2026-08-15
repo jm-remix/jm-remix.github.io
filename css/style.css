@@ -10,11 +10,15 @@
   --bg-blue: #e8f6fb;
 }
 
+/* style.css の body 設定を以下のように修正 */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
   background: var(--bg-blue);
   overflow-x: hidden;
+  
+  /* 追加：ヘッダーの高さ(64px)分だけ余白を空ける */
+  padding-top: 64px; 
 }
 
 /* =========================
@@ -110,15 +114,16 @@ body {
 .hamburger {
   width: 28px;
   height: 20px;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
+  display: flex;             /* ここでフレックスボックスにする */
+  flex-direction: column;    /* spanを縦に並べる */
+  justify-content: space-between; /* 上・中・下へ綺麗に配置する */
   cursor: pointer;
   z-index: 1001;
 }
 
 .hamburger span {
   display: block;
+  width: 100%;               /* 幅を確実に100%にする */
   height: 2px;
   background: var(--gold);
 }
@@ -129,8 +134,8 @@ body {
 .mobile-nav {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 75%;
+  right: -300px; /* 初期状態のオフセット値を少し小さくする */
+  width: 300px;  /* 75%から固定値（例:300px）に変更 */
   height: 100vh;
   background: rgba(120, 120, 120, 0.85);
   backdrop-filter: blur(8px);
@@ -139,6 +144,7 @@ body {
   padding-top: 80px;
 }
 
+/* メニューが開いた時の位置も調整 */
 .mobile-nav.active {
   right: 0;
 }
@@ -473,8 +479,6 @@ a:hover {
 pointer-events: auto;
 }
 
-
-
 .modal-nav:hover {
   opacity: 1;
   transform: translateY(-50%) scale(1.1);
@@ -482,4 +486,22 @@ pointer-events: auto;
 
 .modal-nav.prev { left: 5%; }
 .modal-nav.next { right: 5%; }
+
+
+/* ハンバーガーレイヤー */
+.overlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1500; 
+  pointer-events: none; /* 追加：普段は下の要素をクリックできるように透過させる */
+}
+
+.overlay.active {
+  display: block;
+  pointer-events: auto; /* 追加：メニューが開いている時はクリックできるようにする */
+}
 
