@@ -653,195 +653,79 @@ pointer-events: auto;
 }
 
 
-/* ディスコグラフィ専用のレイアウト */
+/* =========================
+   ディスコグラフィ専用のレイアウト
+========================= */
+.disco-section {
+  padding: 40px 20px !important;
+  border-bottom: 1px solid #ddd;
+}
+
 .disco-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.disco-item {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 60px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #ddd;
+.category-title {
+  font-size: 1.5rem;
+  color: #c9b36d;
+  border-left: 4px solid #c9b36d;
+  padding-left: 15px;
+  margin: 40px 0 20px 0 !important;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  grid-column: 1 / -1;
 }
 
-.disco-jacket {
-    flex: 0 0 250px;
-}
-
-.disco-jacket img {
-    width: 100%;
-    height: auto;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.disco-text {
-    flex: 1;
-    min-width: 280px;
-}
-
-.disco-text h3 {
-    margin-top: 0;
-    color: #c9b36d; /* --gold */
-}
-
-.player-wrap {
-    margin-top: 20px;
-}
-
-/* スマホ用レスポンシブ設定 */
-@media (max-width: 768px) {
-    .disco-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .disco-jacket {
-        flex: 0 0 100%;
-        max-width: 300px;
-    }
-}
-
-
-    /* ディスコグラフィページ用の追加スタイル */
-    .disco-section {
-        padding: 80px 20px;
-    }
-    .disco-container {
-        max-width: 900px;
-        margin: 0 auto;
-    }
-    .category-title {
-        font-size: 1.5rem;
-        color: #c9b36d;
-        border-left: 4px solid #c9b36d;
-        padding-left: 15px;
-        margin: 60px 0 30px 0;
-        font-weight: 300;
-        letter-spacing: 0.1em;
-    }
-    .disco-item {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        margin-bottom: 60px;
-        padding-bottom: 40px;
-        border-bottom: 1px solid #eee;
-    }
-    .disco-jacket {
-        flex: 0 0 250px;
-    }
-    .disco-jacket img {
-        width: 100%;
-        height: auto;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    .disco-text {
-        flex: 1;
-        min-width: 280px;
-    }
-    .disco-text h3 {
-        margin-top: 0;
-        color: #c9b36d;
-    }
-    .player-wrap {
-        margin-top: 20px;
-    }
-    @media (max-width: 768px) {
-        .disco-item {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .disco-jacket {
-            flex: 0 0 100%;
-            max-width: 300px;
-        }
-    }
-
-/* PC表示（画面幅768px以上）の場合のレイアウト */
+/* PC：3列グリッドレイアウト */
 @media screen and (min-width: 768px) {
   .disco-container {
     display: grid;
-    /* repeat(3, 1fr) で3列になります */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px; /* アイテム間の余白（お好みで調整してください） */
-  }
-
-  /* 見出し（タイトル）は横幅いっぱいに表示させる */
-  .intro-text-box,
-  .category-title {
-    grid-column: 1 / -1; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
   }
 }
 
-/* =========================
-   セクション間マージンの調整
-========================= */
-.section,
-.disco-section {
-  padding: 20px 20px !important; /* 上下のパディングを標準の80pxから40pxへ縮小 */
-  border-bottom: 1px solid #ddd;
-}
-
-/* ディスコグラフィ内のカテゴリ見出し上下の余白もスリム化 */
-.category-title {
-  margin: 10px 0 10px 0 !important; 
-  border-bottom: 1px solid #ddd;
-}
-
-/* ディスコグラフィのアイテムごとの下部余白とボーダーを調整 */
 .disco-item {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 20px !important;
   padding-bottom: 20px !important;
   border-bottom: 1px solid #ddd;
 }
 
-/* NEWS セクションのスタイル */
-.news-list {
-  max-width: 1100px;
-  margin: 40px auto;
-  text-align: left;
+.disco-jacket {
+  width: 100%;
 }
 
-.news-item {
-  display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(201, 179, 109, 0.3); /* ゴールドの薄いライン */
+.disco-jacket img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 正方形に統一 */
+  object-fit: cover;   /* 比率を保って枠に収める */
+  display: block;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.news-item:first-child {
-  border-top: 1px solid rgba(201, 179, 109, 0.3);
+.disco-text {
+  margin-top: 15px;
 }
 
-.date {
-  color: var(--gold);
-  font-weight: bold;
-  white-space: nowrap;
-  font-family: 'Helvetica Neue', sans-serif;
+.disco-text h3 {
+  margin: 0 0 10px 0;
+  color: #c9b36d;
+  font-size: 1.1rem;
 }
 
-.content {
-  margin: 0;
-  line-height: 1.6;
-  color: #444;
-}
-
-/* スマホ対応 */
-@media (max-width: 768px) {
-  .news-item {
-    flex-direction: column;
-    gap: 5px;
+/* スマホ：中央寄せ */
+@media (max-width: 767px) {
+  .disco-item {
+    align-items: center;
+    text-align: center;
   }
 }
 
 /* =========================
-   NEWSセクションの文字サイズ調整版
+   その他既存のNEWS/メンバー設定（そのまま維持）
 ========================= */
 .news-list {
   max-width: 1100px;
@@ -863,7 +747,6 @@ pointer-events: auto;
   display: flex;
   align-items: center;
   gap: 8px;
-  /* 文字サイズを少し大きく修正（0.72rem → 0.82rem） */
   font-size: 0.82rem;
   color: #666;
   margin-bottom: 6px;
@@ -871,20 +754,10 @@ pointer-events: auto;
   letter-spacing: 0.03em;
 }
 
-.date, .category {
-  font-weight: 400;
-}
+.date, .category { font-weight: 400; }
+.news-separator { color: #999; }
+.category { font-weight: 600; letter-spacing: 0.05em; }
 
-.news-separator {
-  color: #999;
-}
-
-.category {
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-
-/* 「NEW」の黒いラベル */
 .new-badge {
   background: #333;
   color: #fff;
@@ -896,7 +769,6 @@ pointer-events: auto;
 
 .news-item .content {
   margin: 0;
-  /* 本文の文字サイズを少し大きく修正（0.95rem → 1.05rem） */
   font-size: 1.05rem;
   line-height: 1.6;
 }
@@ -907,87 +779,39 @@ pointer-events: auto;
   transition: color 0.3s ease;
 }
 
-.news-item .content a:hover {
-  color: var(--gold);
-}
+.news-item .content a:hover { color: var(--gold); }
 
-
-/* 3列を維持するグリッド設定 */
 .members-grid-top {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px; /* カード間のスペース */
+  gap: 15px;
   width: 100%;
 }
 
-/* メンバーカード（リンク）のスタイル */
-.member-card-top {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  transition: opacity 0.3s ease;
-}
+.member-card-top { display: block; text-decoration: none; color: inherit; transition: opacity 0.3s ease; }
+.member-card-top:hover { opacity: 0.8; }
+.member-img-wrap-top img { width: 100%; height: auto; display: block; object-fit: cover; }
+.member-text-top { margin-top: 8px; }
+.member-text-top h3 { font-size: 16px; margin: 0 0 4px 0; }
+.members-grid-top .youtube-link { display: inline-block; font-size: 12px; color: #888; }
 
-.member-card-top:hover {
-  opacity: 0.8;
-}
-
-/* 画像ラッパー */
-.member-img-wrap-top img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-/* テキストエリア */
-.member-text-top {
-  margin-top: 8px;
-}
-
-.member-text-top h3 {
-  font-size: 16px;
-  margin: 0 0 4px 0;
-}
-
-/* チャンネル名などのリンク風表示 */
-.members-grid-top .youtube-link {
-  display: inline-block;
-  font-size: 12px;
-  color: #888; /* 必要に応じて調整してください */
-}
-
-/* モバイル画面で幅が狭くなったときの微調整（必要に応じて） */
 @media (max-width: 600px) {
-  .members-grid-top {
-    gap: 6px; /* 画面が狭い場合は隙間を狭くする */
-  }
-  
-  .member-text-top h3 {
-    font-size: 11px; /* スマホで文字が大きすぎる場合に調整 */
-  }
-  
-  .members-grid-top .youtube-link {
-    font-size: 10px;
-  }
+  .members-grid-top { gap: 6px; }
+  .member-text-top h3 { font-size: 11px; }
+  .members-grid-top .youtube-link { font-size: 10px; }
 }
 
-/* マージン・ユーティリティクラス */
 .mt0 { margin-top: 0; }
 .mt10 { margin-top: 10px; }
 .mt20 { margin-top: 20px; }
 .mt30 { margin-top: 30px; }
 .mt40 { margin-top: 40px; }
 .mt50 { margin-top: 50px; }
-
 .mb0 { margin-bottom: 0; }
 .mb10 { margin-bottom: 10px; }
 .mb20 { margin-bottom: 20px; }
 .mb30 { margin-bottom: 30px; }
 .mb40 { margin-bottom: 40px; }
-.mb40 { margin-bottom: 40px; }
 .mb50 { margin-bottom: 50px; }
-
-/* マイナスマージン用クラス（必要最低限に） */
 .mt-n10 { margin-top: -10px; }
 .mt-n20 { margin-top: -20px; }
