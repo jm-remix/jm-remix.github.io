@@ -238,10 +238,12 @@ body {
 }
 
 .more-btn {
-  display: inline-block;
-  margin-top: 24px;
-  /* 横幅を1.5倍に広げるためパディングを調整 */
-  padding: 6px 36px; 
+  display: block;          /* インラインからブロックに変更して中央寄せしやすくする */
+  margin: 24px auto 0 auto; /* 上に24px、左右中央(auto)、下0 */
+  width: fit-content;      /* ボタンの横幅を中身（文字＋パディング）の長さに合わせる */
+  
+  /* 横幅を調整するためパディング設定 */
+  padding: 10px 120px; 
   border: 1px solid var(--gold);
   text-decoration: none;
   
@@ -849,13 +851,13 @@ pointer-events: auto;
    NEWSセクションの文字サイズ調整版
 ========================= */
 .news-list {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 30px auto 40px auto;
   text-align: left;
 }
 
 .news-item {
-  padding: 24px 0;
+  padding: 18px 0;
   border-bottom: 1px solid #ccc;
   display: block !important;
 }
