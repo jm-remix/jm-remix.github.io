@@ -904,3 +904,64 @@ pointer-events: auto;
 .news-item .content a:hover {
   color: var(--gold);
 }
+
+
+/* 3列を維持するグリッド設定 */
+.members-grid-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px; /* カード間のスペース */
+  width: 100%;
+}
+
+/* メンバーカード（リンク）のスタイル */
+.member-card-top {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.member-card-top:hover {
+  opacity: 0.8;
+}
+
+/* 画像ラッパー */
+.member-img-wrap-top img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* テキストエリア */
+.member-text-top {
+  margin-top: 8px;
+}
+
+.member-text-top h3 {
+  font-size: 16px;
+  margin: 0 0 4px 0;
+}
+
+/* チャンネル名などのリンク風表示 */
+.members-grid-top .youtube-link {
+  display: inline-block;
+  font-size: 12px;
+  color: #888; /* 必要に応じて調整してください */
+}
+
+/* モバイル画面で幅が狭くなったときの微調整（必要に応じて） */
+@media (max-width: 600px) {
+  .members-grid-top {
+    gap: 6px; /* 画面が狭い場合は隙間を狭くする */
+  }
+  
+  .member-text-top h3 {
+    font-size: 11px; /* スマホで文字が大きすぎる場合に調整 */
+  }
+  
+  .members-grid-top .youtube-link {
+    font-size: 10px;
+  }
+}
