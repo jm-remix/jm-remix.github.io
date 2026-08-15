@@ -1,76 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>GALLERY | GENUINE GRACE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>GALLERY | GENUINE GRACE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
-<!-- 背景動画 -->
-<video id="bg-video" autoplay muted loop playsinline>
-<source src="img/back.mp4" type="video/mp4">
-</video>
+  <body>
+    <!-- 追加：bodyタグの直下にoverlayを配置 -->
+    <div id="overlay" class="overlay"></div>
 
-<header class="header">
-<a href="index.html" class="logo">Genuine Grace</a>
-<!-- ハンバーガー -->
-<div class="hamburger" id="hamburger">
-<span></span>
-<span></span>
-<span></span>
-</div>
+    <!-- 背景動画 -->
+    <video id="bg-video" autoplay muted loop playsinline>
+      <source src="img/back.mp4" type="video/mp4" />
+    </video>
 
+    <!-- ===== Header ===== -->
+    <header class="header">
+      <div class="logo">Genuine Grace</div>
 
-<!-- モバイルナビ -->
-<nav class="mobile-nav" id="mobileNav">
-<ul>
-<li><a href="index.html">TOP</a></li>
-<li><a href="bio.html">BIO</a></li>
-<li><a href="gallery.html">GALLERY</a></li>
-<li><a href="discography.html">DISCOGRAPHY</a></li>
-</ul>
-</nav>
-</header>
+      <!-- ハンバーガー -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
 
-<main>
-  <section id="gallery" class="section">
-    <h2>GALLERY</h2>
+    <!-- モバイルナビ -->
+    <nav class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="news.html">BIOGRAPHY</a></li>
+        <li><a href="biography.html">BIOGRAPHY</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="discography.html">DISCOGRAPHY</a></li>
+      </ul>
+    </nav>
 
-    <div class="gallery-grid">
-      <img src="img/gallery/thumb-01.jpg" data-full="img/gallery/photo-01.jpg">
-      <img src="img/gallery/thumb-02.jpg" data-full="img/gallery/photo-02.jpg">
-      <img src="img/gallery/thumb-03.jpg" data-full="img/gallery/photo-03.jpg">
-      <img src="img/gallery/thumb-04.jpg" data-full="img/gallery/photo-04.jpg">
-      <img src="img/gallery/thumb-05.jpg" data-full="img/gallery/photo-05.jpg">
-      <img src="img/gallery/thumb-06.jpg" data-full="img/gallery/photo-06.jpg">
-      <img src="img/gallery/thumb-07.jpg" data-full="img/gallery/photo-07.jpg">
-      <img src="img/gallery/thumb-08.jpg" data-full="img/gallery/photo-08.jpg">
-      <img src="img/gallery/thumb-09.jpg" data-full="img/gallery/photo-09.jpg">
-      <img src="img/gallery/thumb-10.jpg" data-full="img/gallery/photo-10.jpg">
-      <img src="img/gallery/thumb-11.jpg" data-full="img/gallery/photo-11.jpg">
-      <img src="img/gallery/thumb-12.jpg" data-full="img/gallery/photo-12.jpg">
-      <!-- …最大36枚 -->
+    <main>
+      <section id="gallery" class="section">
+        <div class="intro-text-box">
+          <h2>GALLERY</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <img
+            src="img/gallery/thumb-01.jpg"
+            data-full="img/gallery/photo-01.jpg"
+          />
+          <img
+            src="img/gallery/thumb-02.jpg"
+            data-full="img/gallery/photo-02.jpg"
+          />
+          <img
+            src="img/gallery/thumb-03.jpg"
+            data-full="img/gallery/photo-03.jpg"
+          />
+          <img
+            src="img/gallery/thumb-04.jpg"
+            data-full="img/gallery/photo-04.jpg"
+          />
+          <img
+            src="img/gallery/thumb-05.jpg"
+            data-full="img/gallery/photo-05.jpg"
+          />
+          <img
+            src="img/gallery/thumb-06.jpg"
+            data-full="img/gallery/photo-06.jpg"
+          />
+          <img
+            src="img/gallery/thumb-07.jpg"
+            data-full="img/gallery/photo-07.jpg"
+          />
+          <img
+            src="img/gallery/thumb-08.jpg"
+            data-full="img/gallery/photo-08.jpg"
+          />
+          <img
+            src="img/gallery/thumb-09.jpg"
+            data-full="img/gallery/photo-09.jpg"
+          />
+          <img
+            src="img/gallery/thumb-10.jpg"
+            data-full="img/gallery/photo-10.jpg"
+          />
+          <img
+            src="img/gallery/thumb-11.jpg"
+            data-full="img/gallery/photo-11.jpg"
+          />
+          <img
+            src="img/gallery/thumb-12.jpg"
+            data-full="img/gallery/photo-12.jpg"
+          />
+        </div>
+      </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <!-- Scroll to Top -->
+    <div id="toTop" aria-label="ページトップへ">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path d="M12 5l-7 7h4v7h6v-7h4z" />
+      </svg>
     </div>
-  </section>
-</main>
+    <!-- ===== Gallery Modal ===== -->
+    <div id="gallery-modal">
+      <span class="modal-close">&times;</span>
 
-<script src="js/main.js"></script>
-<!-- Scroll to Top -->
-<div id="toTop" aria-label="ページトップへ">
-<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-<path d="M12 5l-7 7h4v7h6v-7h4z" />
-</svg>
-</div>
-<!-- ===== Gallery Modal ===== -->
-<div id="gallery-modal">
-<span class="modal-close">&times;</span>
-
-
-<button class="modal-nav prev" aria-label="前へ">‹</button>
-<img id="modal-img" src="" alt="">
-<button class="modal-nav next" aria-label="次へ">›</button>
-</div>
-</body>
+      <button class="modal-nav prev" aria-label="前へ">‹</button>
+      <img id="modal-img" src="" alt="" />
+      <button class="modal-nav next" aria-label="次へ">›</button>
+    </div>
+  </body>
 </html>

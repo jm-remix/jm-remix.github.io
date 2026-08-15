@@ -2,27 +2,13 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GENUINE GRACE</title>
+    <title>NEWS | GENUINE GRACE</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
     <!-- bodyタグの直下などに配置 -->
     <div id="overlay" class="overlay"></div>
-
-    <!-- ===== Intro Screen ===== -->
-    <div id="intro">
-      <video
-        id="intro-video"
-        src="img/back.mp4"
-        autoplay
-        muted
-        playsinline
-      ></video>
-
-      <div class="intro-text">GENUINE GRACE</div>
-    </div>
 
     <!-- 背景動画 -->
     <video id="bg-video" autoplay muted loop playsinline>
@@ -51,37 +37,6 @@
         <li><a href="discography.html">DISCOGRAPHY</a></li>
       </ul>
     </nav>
-
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-      <img src="img/hero-1.png" class="hero-img active" alt="" />
-      <img src="img/hero-2.png" class="hero-img" alt="" />
-      <img src="img/hero-3.png" class="hero-img" alt="" />
-    </section>
-
-    <!-- ===== YouTube ===== -->
-    <section class="youtube js-fade-in">
-      <div class="youtube-grid">
-        <div class="yt">
-          <iframe
-            src="https://www.youtube.com/embed/pyl54VhcNn8"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="yt">
-          <iframe
-            src="https://www.youtube.com/embed/DdfaDQmENGs"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="yt">
-          <iframe
-            src="https://www.youtube.com/embed/epGFcqbS3xU"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </section>
 
     <!-- ===== Sections ===== -->
     <section id="news" class="section">
@@ -139,11 +94,22 @@
 
         <div class="news-item">
           <div class="news-meta">
+            <span class="date">2021.01.12</span>
+            <span class="news-separator">|</span>
+            <span class="category">RELEASE</span>
+          </div>
+          <p class="content">
+            <a href="https://youtu.be/eCiPS3A84uM"
+              >JM 3rdソロシングル「Graceful Days」MV先行公開！</a
+            >
+          </p>
+        </div>
+
+        <div class="news-item">
+          <div class="news-meta">
             <span class="date">2020.05.08</span>
             <span class="news-separator">|</span>
             <span class="category">RELEASE</span>
-            <!-- 新着の場合のみ表示したいときは .new-badge を追加できます -->
-            <!-- <span class="new-badge">NEW</span> -->
           </div>
           <p class="content">
             <a href="https://prtimes.jp/main/html/rd/p/000000476.000011969.html"
@@ -153,108 +119,62 @@
             >
           </p>
         </div>
-        <!-- 追加のニュースがある場合はここに <div class="news-item">...</div> を増やします -->
-      </div>
-      <a class="more-btn" href="news.html">MORE</a>
-    </section>
 
-    <section id="bio" class="section">
-      <h2>BIOGRAPHY</h2>
-      <div class="members-grid">
-        <!-- メンバー1 -->
-        <div class="member-card">
-          <div class="member-img-wrap">
-            <img src="img/bio-1.jpg" alt="Member 1" />
+        <div class="news-item">
+          <div class="news-meta">
+            <span class="date">2020.05.03</span>
+            <span class="news-separator">|</span>
+            <span class="category">RELEASE</span>
           </div>
-          <div class="member-text">
-            <h3>JM Remix (Key, Prog)</h3>
-            <a
-              href="https://www.youtube.com/@JMRemix"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="youtube-link"
+          <p class="content">
+            <a href="https://big-up.style/43fxNN93b0"
+              >JM 2ndソロシングル「MARANATHA」配信開始！</a
             >
-              <span class="youtube-icon">▶</span>
-              JM Remix Channel
-            </a>
-          </div>
+          </p>
         </div>
 
-        <!-- メンバー2 -->
-        <div class="member-card">
-          <div class="member-img-wrap">
-            <img src="img/bio-2.jpg" alt="Member 2" />
+        <div class="news-item">
+          <div class="news-meta">
+            <span class="date">2019.10.28</span>
+            <span class="news-separator">|</span>
+            <span class="category">RELEASE</span>
           </div>
-          <div class="member-text">
-            <h3>Megu (Vo)</h3>
-            <a
-              href="https://www.youtube.com/@megumigrace12"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="youtube-link"
+          <p class="content">
+            <a href="https://big-up.style/FR7l1vRf2r"
+              >Genuine Grace 復活第一弾シングルリリース</a
             >
-              <span class="youtube-icon">▶</span>
-              Megumi Grace Channel
-            </a>
-          </div>
+          </p>
         </div>
 
-        <!-- メンバー3 -->
-        <div class="member-card">
-          <div class="member-img-wrap">
-            <img src="img/bio-3.jpg" alt="Member 3" />
+         <div class="news-item">
+          <div class="news-meta">
+            <span class="date">2019.09.05</span>
+            <span class="news-separator">|</span>
+            <span class="category">SNS</span>
           </div>
-          <div class="member-text">
-            <h3>Shinobu (G)</h3>
-          </div>
+          <p class="content">
+            <a href="https://www.facebook.com/genigure"
+              >Genuine Grace 公式Facebookページを開設しました</a
+            >
+          </p>
         </div>
-      </div>
-      <a class="more-btn" href="biography.html">MORE</a>
-    </section>
 
-    <section id="gallery" class="section">
-      <h2>GALLERY</h2>
+                 <div class="news-item">
+          <div class="news-meta">
+            <span class="date">2018.05.11</span>
+            <span class="news-separator">|</span>
+            <span class="category">RELEASE</span>
+          </div>
+          <p class="content">
+            <a href="https://big-up.style/8xkNArPSyU"
+              >JM 初のソロシングル「STEPHANOS」配信開始！</a
+            >
+          </p>
+        </div>
 
-      <div class="gallery-grid">
-        <img
-          src="img/gallery/thumb-01.jpg"
-          data-full="img/gallery/photo-01.jpg"
-        />
-        <img
-          src="img/gallery/thumb-02.jpg"
-          data-full="img/gallery/photo-02.jpg"
-        />
-        <img
-          src="img/gallery/thumb-03.jpg"
-          data-full="img/gallery/photo-03.jpg"
-        />
-        <img
-          src="img/gallery/thumb-04.jpg"
-          data-full="img/gallery/photo-04.jpg"
-        />
-        <img
-          src="img/gallery/thumb-05.jpg"
-          data-full="img/gallery/photo-05.jpg"
-        />
-        <img
-          src="img/gallery/thumb-06.jpg"
-          data-full="img/gallery/photo-06.jpg"
-        />
-      </div>
-      <a class="more-btn" href="gallery.html">MORE</a>
-    </section>
 
-    <section id="discography" class="section">
-      <h2>DISCOGRAPHY</h2>
-      <div class="gallery-grid">
-        <img src="img/eternity.jpg" data-full="img/eternity.jpg" />
-        <img src="img/air.jpg" data-full="img/air.jpg" />
-        <img
-          src="img/A-Little-Bit-Of-Heaven.jpg"
-          data-full="img/A-Little-Bit-Of-Heaven.jpg"
-        />
-      </div>
-      <a class="more-btn" href="discography.html">MORE</a>
+
+
     </section>
 
     <script src="js/main.js"></script>
