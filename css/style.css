@@ -238,26 +238,19 @@ body {
 }
 
 .more-btn {
-  display: block;          /* インラインからブロックに変更して中央寄せしやすくする */
-  margin: 24px auto 0 auto; /* 上に24px、左右中央(auto)、下0 */
-  width: fit-content;      /* ボタンの横幅を中身（文字＋パディング）の長さに合わせる */
+  display: block;          /* インラインからブロックに変更 */
+  margin: 24px auto 0 auto; /* 上下左右の中央寄せを適用 */
+  width: fit-content;      /* ボタンの横幅を文字＋パディングに合わせる */
   
-  /* 横幅を調整するためパディング設定 */
+  /* パディングなど既存の設定はそのまま */
   padding: 10px 120px; 
   border: 1px solid var(--gold);
   text-decoration: none;
   
-  /* 通常時は背景なし（枠線のみ） */
   background: transparent;
   color: var(--gold);
   
   transition: background 0.3s ease, color 0.3s ease;
-}
-
-.more-btn:hover {
-  /* ホバー時にゴールドで塗りつぶす */
-  background: var(--gold);
-  color: #fff;
 }
 
 /* =========================
