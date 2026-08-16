@@ -662,7 +662,7 @@ pointer-events: auto;
   padding: 20px;
   text-align: left;
 }
-
+１
 .member-text h3 {
   font-size: 1.1rem;
   letter-spacing: 0.1em;
@@ -753,7 +753,7 @@ pointer-events: auto;
 }
 
 /* スマホ：中央寄せ */
-@media (max-width: 767px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .disco-item {
     align-items: center;
     text-align: center;
