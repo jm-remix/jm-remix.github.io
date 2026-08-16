@@ -255,6 +255,14 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* マウスオーバー時の設定 */
+.more-btn:hover {
+  background: var(--gold);
+  color: #ffffff; 
+}
+
+
+
 /* =========================
    TOP ギャラリー
 ========================= */
@@ -992,5 +1000,5 @@ pointer-events: auto;
 /* マウスオーバー時の反転設定 */
 .listen-btn:hover {
   background: var(--gold);
-  color: #ffffff; /* 背景がゴールドになるため、文字色は黒や濃い色を指定（必要に応じて背景に合わせて変更してください） */
+  color: #ffffff; 
 }
