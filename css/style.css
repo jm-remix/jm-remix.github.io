@@ -836,6 +836,22 @@ pointer-events: auto;
   .members-grid-top .youtube-link { font-size: 10px; }
 }
 
+.banner-section {
+  width: 100%;
+  max-width: 1000px; /* バナーの最大幅（サイトのデザインに合わせて調整してください） */
+  margin: 40px auto;  0px; /* 上下に余白を空けて中央配置 */
+  padding: 0 20px;     /* スマホで端がくっつかないように左右に少し余白 */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.banner-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px; /* 必要に応じて角丸に */
+}
+
 .mt0 { margin-top: 0; }
 .mt10 { margin-top: 10px; }
 .mt20 { margin-top: 20px; }
