@@ -575,6 +575,7 @@ pointer-events: auto;
 
 .bio-text-box h2 {
   font-size: 1.8rem;
+  text-align: center !important;
   letter-spacing: 0.15em;
   font-weight: 500;
   color: var(--gold);
@@ -654,9 +655,10 @@ pointer-events: auto;
   padding: 20px;
   text-align: left;
 }
-１
+
 .member-text h3 {
   font-size: 1.1rem;
+  text-align: center !important;
   letter-spacing: 0.1em;
   font-weight: 500;
   color: #d4b36a;
@@ -684,13 +686,28 @@ pointer-events: auto;
 /* =========================
    ディスコグラフィ専用のレイアウト
 ========================= */
+
 .disco-section {
   padding: 40px 20px !important;
   border-bottom: 1px solid #ddd;
 }
 
+/* ディスコグラフィのタイトルをグリッドから除外して中央配置する */
+.disco-container .disco-title-box {
+  grid-column: 1 / -1; /* グリッドの横幅いっぱいに広げる */
+  text-align: center;
+  margin: 0 auto 1em auto !important; /* ここで1emの余白を指定 */
+  width: 100%;
+}
+
+.disco-container .disco-title-box h2 {
+  display: inline-block; /* 中央寄せを確実にする */
+  margin: 0;
+  text-align: center;
+}
+
 .disco-container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -859,3 +876,29 @@ pointer-events: auto;
 .mb50 { margin-bottom: 50px; }
 .mt-n10 { margin-top: -10px; }
 .mt-n20 { margin-top: -20px; }
+
+/* ディスコグラフィのタイトル全体の設定 */
+.disco-title-box {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 1em !important; /* DISCOGRAPHYの下の隙間 */
+  margin-top: 0 !important;
+}
+
+.disco-title-box h2 {
+  display: inline-block;
+  font-size: 1.8rem;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  color: #c9b36d;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2;
+}
+
+/* Genuine Grace などのタイトルの設定 */
+.category-title {
+  grid-column: 1 / -1;
+  margin-top: 0px !important; 
+  margin-bottom: 10px !important;
+}
