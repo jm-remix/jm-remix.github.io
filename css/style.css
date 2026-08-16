@@ -197,7 +197,7 @@ body {
    YouTube
 ========================= */
 .youtube {
-  padding: 0px;
+  padding: 20px 20px;
 }
 
 .youtube-grid {
@@ -265,25 +265,39 @@ body {
 Gallery Grid（TOP / Gallery 共通）
 ========================= */
 .gallery-grid {
+
 display: grid;
+
 grid-template-columns: repeat(3, 1fr); /* ← 常に3列 */
+
 gap: clamp(6px, 1.5vw, 12px);
+
 }
 
 
 .gallery-grid img {
+
 width: 100%;
+
 height: auto; /* ← 高さ固定をやめる */
+
 object-fit: cover;
+
 cursor: pointer;
+
 transition: transform 0.4s ease, opacity 0.4s ease;
+
 }
 
 
 .gallery-grid img:hover {
+
 transform: scale(1.05);
+
 opacity: 0.85;
-}
+
+} 
+
 
 /* =========================
    ギャラリーページ
