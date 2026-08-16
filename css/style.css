@@ -953,3 +953,20 @@ pointer-events: auto;
   transform: translateY(-4px);
   opacity: 0.8; /* 少し薄くしてホバーを表現 */
 }
+
+/* Radioアイコン専用のスタイル */
+.sns-icon.radio {
+  background-color: #00ced1;
+  color: #ffffff;       
+  font-size: 0.75rem;      /* 文字が枠に収まるように少し小さめに */
+  font-weight: bold;       /* 太字にして強調 */
+  letter-spacing: 0.05em;  /* 少し字間を空ける */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ホバー時の動き（他のSNSと揃える） */
+.sns-icon.radio:hover {
+  transform: translateY(-4px);
+  opacity: 0.8;
+}
