@@ -681,10 +681,10 @@ pointer-events: auto;
 /* =========================
    レスポンシブ（モバイル時）
 ========================= */
-@media (max-width: 768px) {
+/* 幅が768px以下 かつ 縦向きのときだけ1列にする */
+@media (max-width: 768px) and (orientation: portrait) {
   .members-grid {
-    grid-template-columns: 1fr; /* モバイル時には1名ずつ縦に並べる[cite: 1] */
-    gap: 24px;
+    grid-template-columns: 1fr;
   }
 }
 
