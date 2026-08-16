@@ -902,3 +902,17 @@ pointer-events: auto;
   margin-top: 0px !important; 
   margin-bottom: 10px !important;
 }
+
+/* =========================
+   Hero画像 モバイル設定：上部を削る
+========================= */
+@media (max-width: 768px) {
+  .hero-img {
+    /* 
+       50% = 水平方向は中央
+       100% = 垂直方向は下端を基準にする 
+       これで実質的に画像の上部がカットされます
+    */
+    object-position: 50% 100% !important;
+  }
+}
