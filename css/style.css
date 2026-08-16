@@ -899,12 +899,12 @@ pointer-events: auto;
   line-height: 1.2;
 }
 
-/* Genuine Grace などのタイトルの設定 */
 .category-title {
   grid-column: 1 / -1;
   margin-top: 0px !important; 
   margin-bottom: 10px !important;
 }
+
 
 /* =========================
    Hero画像 モバイル設定：上部を削る
@@ -971,4 +971,26 @@ pointer-events: auto;
 .sns-icon.radio:hover {
   transform: translateY(-4px);
   opacity: 0.8;
+}
+
+.listen-btn {
+  display: block;          /* インラインからブロックに変更 */
+  margin: 24px 0 0 0;      /* 上と左にマージンを設定（左寄せ） */
+  width: fit-content;      /* ボタンの横幅を文字＋パディングに合わせる */
+  
+  /* パディングなど既存の設定はそのまま */
+  padding: 10px 10px; 
+  border: 1px solid var(--gold);
+  text-decoration: none;
+  
+  background: transparent;
+  color: var(--gold);
+  
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* マウスオーバー時の反転設定 */
+.listen-btn:hover {
+  background: var(--gold);
+  color: #ffffff; /* 背景がゴールドになるため、文字色は黒や濃い色を指定（必要に応じて背景に合わせて変更してください） */
 }
