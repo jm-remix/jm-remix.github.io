@@ -177,6 +177,7 @@ body {
   height: 60vh;
   position: relative;
   overflow: hidden;
+  margin-top: -64px; /* bodyのpadding-top分を打ち消して上に引き上げる */
 }
 
 .hero-img {
