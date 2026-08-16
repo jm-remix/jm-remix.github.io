@@ -265,31 +265,23 @@ body {
 /* =========================
 Gallery Grid（TOP / Gallery 共通）
 ========================= */
+
 .gallery-grid {
-
-display: grid;
-
-grid-template-columns: repeat(3, 1fr); /* ← 常に3列 */
-
-gap: clamp(6px, 1.5vw, 12px);
-
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(6px, 1.5vw, 12px);
 }
-
 
 .gallery-grid img {
-
-width: 100%;
-
-height: auto; /* ← 高さ固定をやめる */
-
-object-fit: cover;
-
-cursor: pointer;
-
-transition: transform 0.4s ease, opacity 0.4s ease;
-
+  width: 100%;
+  /* 以下の2行が重要です */
+  aspect-ratio: 1 / 1;      /* 正方形にする（または 4/3 など） */
+  object-fit: cover;        /* 画像を切り抜いて枠いっぱいに埋める */
+  
+  cursor: pointer;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  display: block;           /* 下の隙間を消す */
 }
-
 
 .gallery-grid img:hover {
 
@@ -566,7 +558,7 @@ pointer-events: auto;
    紹介文 ＆ メンバーセクション
 ========================= */
 .about-section {
-  padding: 80px 20px;
+  padding: 20px 20px 80px 20px;
   background: rgba(255, 255, 255, 0.4);
 }
 
