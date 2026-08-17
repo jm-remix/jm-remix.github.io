@@ -9,7 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
         text.style.opacity = "1";
         setTimeout(() => { text.style.opacity = "0"; text.style.transform = "scale(1.18)"; }, 400);
         setTimeout(() => { intro.style.transition = "opacity 0.8s ease"; intro.style.opacity = "0"; }, 1000);
-        setTimeout(() => { intro.remove(); }, 1800);
+        setTimeout(() => {
+    if (intro) {
+        intro.remove();
+    }
+}, 1800);
     }
 
     // 2. Hero slider
@@ -149,19 +153,79 @@ $(function() {
 });
 
 const videoSwiper = new Swiper('.video-slider', {
-  loop: true,               // ループさせる
-  speed: 5000,              // スライドするスピード（数値を大きくすると遅くなります）
-  slidesPerView: 1.2,       // スマホで左右に見切れを作る（1.2枚分表示）
-  centeredSlides: true,     // アクティブなスライドを中央に
-  spaceBetween: 20,         // スライド間の隙間
+  loop: true,
+  speed: 5000,
+  slidesPerView: 1.2,
+  centeredSlides: true,
+  spaceBetween: 20,
+
   autoplay: {
-    delay: 0,               // 止めずに流し続ける
+    delay: 0,
     disableOnInteraction: false,
   },
+
   breakpoints: {
     768: {
-      slidesPerView: 3,     // 768px以上で3枚表示
+      slidesPerView: 3,
       spaceBetween: 40,
     }
   }
+});
+
+
+// YouTubeプレーヤー
+let youtubePlayers = [];
+
+function onYouTubeIframeAPIReady() {
+  const iframes = document.querySelectorAll('.video-slider iframe');
+
+  iframes.forEach((iframe, index) => {
+    youtubePlayers[index] = new YT.Player(iframe);
+  });
+}
+
+
+// 動画クリック
+document.querySelectorAll('.video-slider .swiper-slide').forEach((slide) => {
+
+  slide.addEventListener('click', () => {
+
+    const iframe = slide.querySelector('iframe');
+
+    if (!iframe) return;
+
+    const iframes = [...document.querySelectorAll('.video-slider iframe')];
+    const index = iframes.indexOf(iframe);
+
+    const player = youtubePlayers[index];
+
+    if (!player) return;
+
+
+    // 再生中なら停止
+    if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+
+      player.pauseVideo();
+
+      // スクロール再開
+      videoSwiper.autoplay.start();
+
+    } else {
+
+      // 他の動画を停止
+      youtubePlayers.forEach((otherPlayer) => {
+        if (otherPlayer && otherPlayer !== player) {
+          otherPlayer.pauseVideo();
+        }
+      });
+
+      // スクロール停止
+      videoSwiper.autoplay.stop();
+
+      // 再生
+      player.playVideo();
+    }
+
+  });
+
 });
