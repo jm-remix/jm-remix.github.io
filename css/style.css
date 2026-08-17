@@ -946,11 +946,17 @@ pointer-events: auto;
   width: 100%;
 }
 
-.member-card-top { display: block; text-decoration: none; color: inherit; transition: opacity 0.3s ease; }
-.member-card-top:hover { opacity: 0.8; }
+.member-card-top { display: block; text-decoration: none; color: inherit; transition: opacity 0.9s ease; }
+.member-card-top:hover {
+
+transform: scale(1.5);
+
+opacity: 0.85;
+
+} 
 .member-img-wrap-top img { width: 100%; height: auto; display: block; object-fit: cover; }
 .member-text-top { margin-top: 8px; }
-.member-text-top h3 { font-size: 16px; margin: 0 0 4px 0; }
+.member-text-top h3 { font-size: 16px; margin: 0 0 4px 0; color: #d4b36a;}
 .members-grid-top .youtube-link { display: inline-block; font-size: 12px; color: #888; }
 
 @media (max-width: 600px) {
