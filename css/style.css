@@ -63,6 +63,7 @@ body {
   inset: 0;
   background: rgba(0, 0, 0, 0.25);
   z-index: 1;
+  pointer-events: none; /* タップやクリックを透過させる */
 }
 
 /* イントロ文字 */
@@ -70,17 +71,22 @@ body {
   position: relative;
   z-index: 2;
   color: var(--gold);
-  font-size: clamp(36px, 6vw, 72px);
-  letter-spacing: 0.25em;
+  /* 画面幅に合わせて文字サイズをレスポンシブに調整 */
+  font-size: clamp(24px, 5vw, 72px);
+  letter-spacing: 0.15em; /* スマホで見切れにくいように少し調整 */
+  text-align: center;
+  padding: 0 1rem; /* 画面端で文字が切れないための余白 */
   opacity: 0;
-  transform: scale(1) translateX(1500px); /* scale と translateX を組み合わせる */
+  /* 1500px固定だとスマホで画面外に飛びすぎるため、vwやcalcに変更 */
+  transform: scale(1) translateX(100vw); 
   transition: opacity 0.6s ease, transform 0.6s ease;
-  animation: introFadeIn 0.8s ease forwards;
+  animation: introFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes introFadeIn {
   to {
     opacity: 1;
+    transform: scale(1) translateX(0); /* 定位置へ移動 */
   }
 }
 
