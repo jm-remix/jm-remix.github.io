@@ -97,3 +97,71 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+
+/* Swiper
+------------------------------------------------------------------------------------------------ */
+$(function(){
+	var mySwiper = new Swiper('.style1', {
+		slidesPerView: '1.4',
+		spaceBetween: '10%',
+		centeredSlides: false,
+		loop: false,
+		grabCursor: true,
+		watchSlidesProgress: true,
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+			type: 'bullets',
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		scrollbar: {
+			el: '.swiper-scrollbar',
+		},
+	});
+});
+
+
+
+/* Infinite Loop
+------------------------------------------------------------------------------------------------ */
+$(function() {
+	var infiniteSlider = new Swiper(".infinite-slider", {
+		loop: true,
+		allowTouchMove: false,
+		slidesPerView: 4,
+		breakpoints: {
+			750: {
+				slidesPerView: 6,
+			}
+		},
+		centeredSlides: true,
+		speed: 1000,
+		autoplay: {
+			delay: 0,
+			disableOnInteraction: false,
+		},
+	});
+});
+
+const videoSwiper = new Swiper('.video-slider', {
+  loop: true,               // ループさせる
+  speed: 5000,              // スライドするスピード（数値を大きくすると遅くなります）
+  slidesPerView: 1.2,       // スマホで左右に見切れを作る（1.2枚分表示）
+  centeredSlides: true,     // アクティブなスライドを中央に
+  spaceBetween: 20,         // スライド間の隙間
+  autoplay: {
+    delay: 0,               // 止めずに流し続ける
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 3,     // 768px以上で3枚表示
+      spaceBetween: 40,
+    }
+  }
+});
