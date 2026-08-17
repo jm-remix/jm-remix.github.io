@@ -246,30 +246,92 @@ body {
 /* =========================
    YouTube
 ========================= */
-.youtube {
-  padding: 20px 20px;
+#youtube .swiper {
+	padding: 3em 0 0 0;
+}
+.infinite-slider .swiper-wrapper {
+  transition-timing-function: linear;
+	margin: 0;
+  padding: 0;
+}
+.infinite-slider .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	padding: 0 .5em;
+}
+.infinite-slider .swiper-slide::after {
+	position: relative;
+  background: none;
 }
 
-.youtube-grid {
-  max-width:1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+/* YouTube動画をレスポンシブにするための設定 */
+.video-slider .swiper-slide {
+  aspect-ratio: 16 / 9; /* 動画の比率を維持 */
 }
 
-.yt {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-}
-
-.yt iframe {
-  position: absolute;
-  inset: 0;
+.video-slider iframe {
   width: 100%;
   height: 100%;
   border: none;
+  pointer-events: none; /* スライド操作を邪魔しないようにする */
+}
+
+/* スライダー全体の余白 */
+.video-slider {
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+/* =========================
+   swiper
+========================= */
+
+/* 基本構造・ラッパー */
+.swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+    transform: translate3d(0px, 0, 0);
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+}
+
+/* 動画スライダー専用の調整 */
+.video-slider {
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.video-slider .swiper-slide {
+    aspect-ratio: 16 / 9;
+}
+
+.video-slider iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
 }
 
 /* =========================
@@ -1051,3 +1113,5 @@ pointer-events: auto;
   background: var(--gold);
   color: #ffffff; 
 }
+
+
