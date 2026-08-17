@@ -53,8 +53,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.65) blur(0px); /* 初期状態：ぼかしなし */
-  /* 動画にもアニメーションを追加：イントロ開始時にフォーカスが合う演出 */
+  filter: brightness(0.65) blur(0px);
   animation: videoIntro 1.2s ease-out forwards;
 }
 
@@ -63,7 +62,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3); /* 少しだけ濃く調整 */
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1;
   pointer-events: none;
 }
@@ -72,20 +71,19 @@ body {
 .intro-text {
   position: relative;
   z-index: 2;
-  color: var(--gold, #d4af37); /* 変数が未定義の場合のフォールバックを追加 */
-  font-size: clamp(24px, 5vw, 72px);
+  color: var(--gold, #d4af37);
+  /* 文字サイズを少し大きく調整 (例: clamp(48px, 8vw, 96px)) */
+  font-size: clamp(48px, 8vw, 96px);
   letter-spacing: 0.15em;
   text-align: center;
   padding: 0 1rem;
   
-  /* 初期状態：左に隠しておく */
   opacity: 0;
   transform: translateX(100vw) scale(1); 
   
-  /* 新しいアニメーション定義を適用 */
   animation: 
-    textSlideIn 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-    textPauseAndFade 1.2s ease-in 2.0s forwards; /* 2秒後にフェードアウトを開始 */
+    textSlideIn 2.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+    textPauseAndFade 1.2s ease-in 2.2s forwards;
 }
 
 /* --- アニメーション定義 --- */
@@ -96,36 +94,45 @@ body {
   to { filter: brightness(0.65) blur(0px); }
 }
 
-/* 2. 文字の登場（スライドイン）アニメーション */
+/* 2. 文字の登場（スライドイン ＆ 弾む動き） */
 @keyframes textSlideIn {
   0% {
     opacity: 0;
     transform: translateX(100vw) scale(1);
   }
+  /* 途中まで一気にスライドイン */
   60% {
     opacity: 1;
-    transform: translateX(-5vw) scale(1); /* 一旦少し行き過ぎるオーバーシュート演出 */
+    transform: translateX(-3vw) scale(1);
+  }
+  /* 75%〜100%にかけて、ぴょんぴょんとボヨンボヨンに弾ませる */
+  75% {
+    opacity: 1;
+    transform: translateX(2vw) scale(1);
+  }
+  88% {
+    opacity: 1;
+    transform: translateX(-1vw) scale(1);
   }
   100% {
     opacity: 1;
-    transform: translateX(0vw) scale(1); /* 定位置でピタッと止まる */
+    transform: translateX(0vw) scale(1);
   }
 }
 
 /* 3. 文字の静止〜フェードアウトアニメーション */
 @keyframes textPauseAndFade {
   0%, 60% {
-    opacity: 1; /* 2.0s ~ 2.7s の間は静止 */
+    opacity: 1;
     transform: translateX(0vw) scale(1);
     filter: blur(0px);
   }
   100% {
     opacity: 0;
-    transform: translateX(0vw) scale(1.05); /* わずかに拡大しながら消える */
-    filter: blur(2px); /* 消えながら少しぼかす */
+    transform: translateX(0vw) scale(1.05);
+    filter: blur(2px);
   }
 }
-
 /* =========================
    ヘッダー
 ========================= */
