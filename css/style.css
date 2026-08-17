@@ -247,7 +247,7 @@ body {
    YouTube
 ========================= */
 #youtube .swiper {
-	padding: 3em 0 0 0;
+	padding: 1em 0 0 0;
 }
 .infinite-slider .swiper-wrapper {
   transition-timing-function: linear;
@@ -279,7 +279,7 @@ body {
 
 /* スライダー全体の余白 */
 .video-slider {
-  padding: 40px 0;
+  padding: 20px 0;
   overflow: hidden;
 }
 
@@ -288,15 +288,6 @@ body {
 ========================= */
 
 /* 基本構造・ラッパー */
-.swiper-container {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-    z-index: 1;
-}
 
 .swiper-wrapper {
     position: relative;
@@ -319,7 +310,7 @@ body {
 
 /* 動画スライダー専用の調整 */
 .video-slider {
-    padding: 40px 0;
+    padding: 10px 0;
     overflow: hidden;
 }
 
@@ -338,7 +329,7 @@ body {
    セクション
 ========================= */
 .section {
-  padding: 40px 20px;
+  padding: 20px 20px;
   text-align: center;
   max-width: 1200px; 
   margin: 0 auto;    /* 中央寄せ */
