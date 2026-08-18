@@ -10,6 +10,7 @@
   --bg-blue: #e8f6fb;
 }
 
+/* style.css の body 設定を以下のように修正 */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
@@ -167,16 +168,16 @@ body {
 .hamburger {
   width: 28px;
   height: 20px;
-  display: flex;            
-  flex-direction: column;  
-  justify-content: space-between; 
+  display: flex;             /* ここでフレックスボックスにする */
+  flex-direction: column;    /* spanを縦に並べる */
+  justify-content: space-between; /* 上・中・下へ綺麗に配置する */
   cursor: pointer;
   z-index: 1001;
 }
 
 .hamburger span {
   display: block;
-  width: 100%; 
+  width: 100%;               /* 幅を確実に100%にする */
   height: 2px;
   background: var(--gold);
 }
@@ -246,7 +247,7 @@ body {
    YouTube
 ========================= */
 #youtube .swiper {
-	padding: 1em 0 0 0;
+	padding: 3em 0 0 0;
 }
 .infinite-slider .swiper-wrapper {
   transition-timing-function: linear;
@@ -264,71 +265,12 @@ body {
   background: none;
 }
 
-/* YouTube動画をレスポンシブにするための設定 */
-.video-slider .swiper-slide {
-  aspect-ratio: 16 / 9; /* 動画の比率を維持 */
-}
-
-.video-slider iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  pointer-events: none; /* スライド操作を邪魔しないようにする */
-}
-
-/* スライダー全体の余白 */
-.video-slider {
-  padding: 20px 0;
-  overflow: hidden;
-}
-
-/* =========================
-   swiper
-========================= */
-
-/* 基本構造・ラッパー */
-
-.swiper-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: flex;
-    transition-property: transform;
-    box-sizing: content-box;
-    transform: translate3d(0px, 0, 0);
-}
-
-.swiper-slide {
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition-property: transform;
-}
-
-/* 動画スライダー専用の調整 */
-.video-slider {
-    padding: 10px 0;
-    overflow: hidden;
-}
-
-.video-slider .swiper-slide {
-    aspect-ratio: 16 / 9;
-}
-
-.video-slider iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    pointer-events: none;
-}
 
 /* =========================
    セクション
 ========================= */
 .section {
-  padding: 20px 20px;
+  padding: 40px 20px;
   text-align: center;
   max-width: 1200px; 
   margin: 0 auto;    /* 中央寄せ */
@@ -738,7 +680,7 @@ pointer-events: auto;
   flex-direction: column;
 }
 
-/* メンバー画像 */
+//* メンバー画像 */
 .member-img-wrap {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -811,7 +753,7 @@ pointer-events: auto;
 }
 
 .disco-container .disco-title-box h2 {
-  display: inline-block; 
+  display: inline-block; /* 中央寄せを確実にする */
   margin: 0;
   text-align: center;
 }
@@ -882,7 +824,7 @@ pointer-events: auto;
 }
 
 /* =========================
-   その他既存のNEWS/メンバー設定
+   その他既存のNEWS/メンバー設定（そのまま維持）
 ========================= */
 .news-list {
   max-width: 1200px;
@@ -945,17 +887,11 @@ pointer-events: auto;
   width: 100%;
 }
 
-.member-card-top { display: block; text-decoration: none; color: inherit; transition: opacity 0.9s ease; }
-.member-card-top:hover {
-
-transform: scale(1.05);
-
-opacity: 0.85;
-
-} 
+.member-card-top { display: block; text-decoration: none; color: inherit; transition: opacity 0.3s ease; }
+.member-card-top:hover { opacity: 0.8; }
 .member-img-wrap-top img { width: 100%; height: auto; display: block; object-fit: cover; }
 .member-text-top { margin-top: 8px; }
-.member-text-top h3 { font-size: 16px; margin: 0 0 4px 0; color: #d4b36a;}
+.member-text-top h3 { font-size: 16px; margin: 0 0 4px 0; }
 .members-grid-top .youtube-link { display: inline-block; font-size: 12px; color: #888; }
 
 @media (max-width: 600px) {
@@ -967,7 +903,7 @@ opacity: 0.85;
 .banner-section {
   width: 100%;
   max-width: 1200px; /* バナーの最大幅（サイトのデザインに合わせて調整してください） */
-  margin: 40px auto 0px;
+  margin: 40px auto;  0px; /* 上下に余白を空けて中央配置 */
   padding: 0 20px;     /* スマホで端がくっつかないように左右に少し余白 */
   box-sizing: border-box;
   text-align: center;
@@ -977,7 +913,7 @@ opacity: 0.85;
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px; 
+  border-radius: 4px; /* 必要に応じて角丸に */
 }
 
 .mt0 { margin-top: 0; }
@@ -1051,7 +987,7 @@ opacity: 0.85;
   justify-content: center;
   width: 45px;
   height: 45px;
-  color: #fff;     
+  color: #fff;             /* アイコン自体は白 */
   border-radius: 50%;
   font-size: 1.2rem;
   text-decoration: none;
@@ -1076,8 +1012,8 @@ opacity: 0.85;
   background-color: #00ced1;
   color: #ffffff;       
   font-size: 0.75rem;      /* 文字が枠に収まるように少し小さめに */
-  font-weight: bold;  
-  letter-spacing: 0.05em;  
+  font-weight: bold;       /* 太字にして強調 */
+  letter-spacing: 0.05em;  /* 少し字間を空ける */
   text-decoration: none;
   cursor: pointer;
 }
@@ -1089,10 +1025,11 @@ opacity: 0.85;
 }
 
 .listen-btn {
-  display: block;       
-  margin: 24px 0 0 0; 
-  width: fit-content;  
+  display: block;          /* インラインからブロックに変更 */
+  margin: 24px 0 0 0;      /* 上と左にマージンを設定（左寄せ） */
+  width: fit-content;      /* ボタンの横幅を文字＋パディングに合わせる */
   
+  /* パディングなど既存の設定はそのまま */
   padding: 10px 10px; 
   border: 1px solid var(--gold);
   text-decoration: none;
@@ -1108,12 +1045,5 @@ opacity: 0.85;
   background: var(--gold);
   color: #ffffff; 
 }
-
-/* スマホ（モバイルデバイス）時のボタンセンター寄せ設定 */
-@media (max-width: 768px) {
-  .listen-btn {
-    margin-left: auto;
-    margin-right: auto;
-  }
 
 
