@@ -10,7 +10,6 @@
   --bg-blue: #e8f6fb;
 }
 
-/* style.css の body 設定を以下のように修正 */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
@@ -168,16 +167,16 @@ body {
 .hamburger {
   width: 28px;
   height: 20px;
-  display: flex;             /* ここでフレックスボックスにする */
-  flex-direction: column;    /* spanを縦に並べる */
-  justify-content: space-between; /* 上・中・下へ綺麗に配置する */
+  display: flex;            
+  flex-direction: column;  
+  justify-content: space-between; 
   cursor: pointer;
   z-index: 1001;
 }
 
 .hamburger span {
   display: block;
-  width: 100%;               /* 幅を確実に100%にする */
+  width: 100%; 
   height: 2px;
   background: var(--gold);
 }
@@ -812,7 +811,7 @@ pointer-events: auto;
 }
 
 .disco-container .disco-title-box h2 {
-  display: inline-block; /* 中央寄せを確実にする */
+  display: inline-block; 
   margin: 0;
   text-align: center;
 }
@@ -883,7 +882,7 @@ pointer-events: auto;
 }
 
 /* =========================
-   その他既存のNEWS/メンバー設定（そのまま維持）
+   その他既存のNEWS/メンバー設定
 ========================= */
 .news-list {
   max-width: 1200px;
@@ -968,7 +967,7 @@ opacity: 0.85;
 .banner-section {
   width: 100%;
   max-width: 1200px; /* バナーの最大幅（サイトのデザインに合わせて調整してください） */
-  margin: 40px auto;  0px; /* 上下に余白を空けて中央配置 */
+  margin: 40px auto;  0px; 
   padding: 0 20px;     /* スマホで端がくっつかないように左右に少し余白 */
   box-sizing: border-box;
   text-align: center;
@@ -978,7 +977,7 @@ opacity: 0.85;
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px; /* 必要に応じて角丸に */
+  border-radius: 4px; 
 }
 
 .mt0 { margin-top: 0; }
@@ -1052,7 +1051,7 @@ opacity: 0.85;
   justify-content: center;
   width: 45px;
   height: 45px;
-  color: #fff;             /* アイコン自体は白 */
+  color: #fff;     
   border-radius: 50%;
   font-size: 1.2rem;
   text-decoration: none;
@@ -1077,8 +1076,8 @@ opacity: 0.85;
   background-color: #00ced1;
   color: #ffffff;       
   font-size: 0.75rem;      /* 文字が枠に収まるように少し小さめに */
-  font-weight: bold;       /* 太字にして強調 */
-  letter-spacing: 0.05em;  /* 少し字間を空ける */
+  font-weight: bold;  
+  letter-spacing: 0.05em;  
   text-decoration: none;
   cursor: pointer;
 }
