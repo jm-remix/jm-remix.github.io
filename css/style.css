@@ -738,7 +738,7 @@ pointer-events: auto;
   flex-direction: column;
 }
 
-//* メンバー画像 */
+/* メンバー画像 */
 .member-img-wrap {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -967,7 +967,7 @@ opacity: 0.85;
 .banner-section {
   width: 100%;
   max-width: 1200px; /* バナーの最大幅（サイトのデザインに合わせて調整してください） */
-  margin: 40px auto;  0px; 
+  margin: 40px auto 0px;
   padding: 0 20px;     /* スマホで端がくっつかないように左右に少し余白 */
   box-sizing: border-box;
   text-align: center;
