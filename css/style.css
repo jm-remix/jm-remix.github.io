@@ -1090,11 +1090,10 @@ opacity: 0.85;
 }
 
 .listen-btn {
-  display: block;          /* インラインからブロックに変更 */
-  margin: 24px 0 0 0;      /* 上と左にマージンを設定（左寄せ） */
-  width: fit-content;      /* ボタンの横幅を文字＋パディングに合わせる */
+  display: block;       
+  margin: 24px 0 0 0; 
+  width: fit-content;  
   
-  /* パディングなど既存の設定はそのまま */
   padding: 10px 10px; 
   border: 1px solid var(--gold);
   text-decoration: none;
@@ -1109,6 +1108,14 @@ opacity: 0.85;
 .listen-btn:hover {
   background: var(--gold);
   color: #ffffff; 
+}
+
+/* スマホ（モバイルデバイス）時のボタンセンター寄せ設定 */
+@media (max-width: 768px) {
+  .listen-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 
