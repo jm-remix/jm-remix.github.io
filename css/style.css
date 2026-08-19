@@ -1116,4 +1116,7 @@ opacity: 0.85;
     margin-right: auto;
   }
 
-
+/* WOW.jsの基本設定を強制的に適用させる */
+.wow {
+  visibility: visible !important;
+}
