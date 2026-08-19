@@ -34,10 +34,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./js/swiper.js"></script>
     <script src="./js/wow.js"></script>
-  
-    <script>
-      new WOW().init();
-    </script>
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
   </head>
 
@@ -87,14 +83,14 @@
     </nav>
 
     <!-- ===== Hero ===== -->
-    <section class="hero">
+    <section class="hero wow animate__animated animate__fadeInUp">
       <img src="img/hero-1.png" class="hero-img active" alt="" />
       <img src="img/hero-2.png" class="hero-img" alt="" />
       <img src="img/hero-3.png" class="hero-img" alt="" />
     </section>
 
     <!-- ===== VIDEO ===== -->
-        <section id="video" class="section js-fade-in">
+        <section id="video" class="section wow animate__animated animate__fadeInUp">
       <h2>VIDEO</h2>
 <div class="swiper video-slider">
     <div class="swiper-wrapper">
@@ -172,10 +168,10 @@
     </section>
 
     <!-- ===== Sections ===== -->
-    <section id="news" class="section js-fade-in">
-      <h2>NEWS</h2>
+    <section id="news" class="section wow animate__animated animate__fadeInUp">
+  <h2>NEWS</h2>
       <div class="news-list mb0">
-        <div class="news-item">
+        <div class="news-item  wow animate__animated animate__fadeInUp">
           <div class="news-meta">
             <span class="date">2025.10.20</span>
             <span class="news-separator">|</span>
@@ -191,7 +187,7 @@
           </p>
         </div>
 
-        <div class="news-item">
+        <div class="news-item  wow animate__animated animate__fadeInUp">
           <div class="news-meta">
             <span class="date">2023.07.05</span>
             <span class="news-separator">|</span>
@@ -205,7 +201,7 @@
           </p>
         </div>
 
-        <div class="news-item">
+        <div class="news-item  wow animate__animated animate__fadeInUp">
           <div class="news-meta">
             <span class="date">2023.05.12</span>
             <span class="news-separator">|</span>
@@ -220,7 +216,7 @@
           </p>
         </div>
 
-        <div class="news-item">
+        <div class="news-item  wow animate__animated animate__fadeInUp">
           <div class="news-meta">
             <span class="date">2020.05.08</span>
             <span class="news-separator">|</span>
@@ -235,14 +231,14 @@
           </p>
         </div>
       </div>
-      <a class="more-btn" href="news.html">MORE</a>
+      <a class="more-btn wow animate__animated animate__fadeInUp" href="news.html">MORE</a>
     </section>
 
-    <section id="bio" class="section">
+    <section id="bio" class="section wow animate__animated animate__fadeInUp">
       <h2>BIOGRAPHY</h2>
       <div class="members-grid-top">
         <!-- メンバー1 -->
-        <a href="biography.html" class="member-card-top">
+        <a href="biography.html" class="member-card-top wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
           <div class="member-img-wrap-top">
             <img src="img/bio-1s.jpg" alt="Member 1" />
           </div>
@@ -252,7 +248,7 @@
         </a>
 
         <!-- メンバー2 -->
-        <a href="biography.html" class="member-card-top">
+        <a href="biography.html" class="member-card-top wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
           <div class="member-img-wrap-top">
             <img src="img/bio-2s.jpg" alt="Member 2" />
           </div>
@@ -262,7 +258,7 @@
         </a>
 
         <!-- メンバー3 -->
-        <a href="biography.html" class="member-card-top">
+        <a href="biography.html" class="member-card-top wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
           <div class="member-img-wrap-top">
             <img src="img/bio-3s.jpg" alt="Member 3" />
           </div>
@@ -287,10 +283,10 @@
       <a class="more-btn" href="discography.html">MORE</a>
     </section>
 
-    <section id="gallery" class="section">
+    <section id="gallery" class="section wow animate__animated animate__fadeInUp">
       <h2>GALLERY</h2>
 
-      <div class="gallery-grid">
+      <div class="gallery-grid wow animate__animated animate__fadeInUp">
         <img
           src="img/gallery/thumb-01.jpg"
           data-full="img/gallery/photo-01.jpg"
@@ -316,11 +312,11 @@
           data-full="img/gallery/photo-06.jpg"
         />
       </div>
-      <a class="more-btn" href="gallery.html">MORE</a>
+      <a class="more-btn wow animate__animated animate__fadeInUp" href="gallery.html">MORE</a>
     </section>
 
     <!-- バナー -->
-    <div class="banner-section">
+    <div class="banner-section wow animate__animated animate__fadeInUp">
       <a href="https://www.makibito.net/search/label/Wednesday" target="_blank">
         <img
           src="img/megu_ccm_insight.png"
@@ -345,5 +341,8 @@
       <button class="modal-nav next" aria-label="次へ">›</button>
     </div>
      <script src="https://www.youtube.com/iframe_api"></script>
+       <script>
+      new WOW().init();
+    </script>
   </body>
 </html>

@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GALLERY | GENUINE GRACE OFFICIAL SITE</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/swiper.js"></script>
+    <script src="./js/wow.js"></script>
   </head>
 
   <body>
@@ -41,11 +48,11 @@
 
     <main>
       <section id="gallery" class="section mb50">
-        <div class="intro-text-box">
+        <div class="intro-text-box wow animate__animated animate__fadeInUp">
           <h2>GALLERY</h2>
         </div>
 
-        <div class="gallery-grid">
+        <div class="gallery-grid wow animate__animated animate__fadeInUp">
           <img
             src="img/gallery/thumb-00.jpg"
             data-full="img/gallery/photo-00.jpg"
@@ -209,5 +216,8 @@
       <img id="modal-img" src="" alt="" />
       <button class="modal-nav next" aria-label="次へ">›</button>
     </div>
+    <script>
+      new WOW().init();
+    </script>
   </body>
 </html>
