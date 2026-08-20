@@ -345,7 +345,8 @@ body {
   display: block;          /* インラインからブロックに変更 */
   margin: 24px auto 0 auto; /* 上下左右の中央寄せを適用 */
   width: fit-content;      /* ボタンの横幅を文字＋パディングに合わせる */
-  
+  border-radius: 6px;
+
   /* パディングなど既存の設定はそのまま */
   padding: 10px 120px; 
   border: 1px solid var(--gold);
@@ -1100,7 +1101,7 @@ opacity: 0.85;
   padding: 10px 10px; 
   border: 1px solid var(--gold);
   text-decoration: none;
-  
+  border-radius: 6px;
   background: transparent;
   color: var(--gold);
   
