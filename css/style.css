@@ -827,6 +827,7 @@ pointer-events: auto;
 .category-title {
   font-size: 1.3rem;
   color: #c9b36d;
+  border-radius: 6px;
   border-left: 4px solid #c9b36d;
   border-bottom: solid 1px #c9b36d;
   padding-left: 15px;
