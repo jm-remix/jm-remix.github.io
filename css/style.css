@@ -274,7 +274,7 @@ body {
   height: 100%;
   border: none;
   pointer-events: none; /* スライド操作を邪魔しないようにする */
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 /* スライダー全体の余白 */
@@ -345,7 +345,7 @@ body {
   display: block;          /* インラインからブロックに変更 */
   margin: 24px auto 0 auto; /* 上下左右の中央寄せを適用 */
   width: fit-content;      /* ボタンの横幅を文字＋パディングに合わせる */
-  border-radius: 6px;
+  border-radius: 10px;
 
   /* パディングなど既存の設定はそのまま */
   padding: 10px 120px; 
@@ -393,7 +393,7 @@ Gallery Grid（TOP / Gallery 共通）
   cursor: pointer;
   transition: transform 0.4s ease, opacity 0.4s ease;
   display: block;           /* 下の隙間を消す */
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .gallery-grid img:hover {
@@ -676,7 +676,7 @@ pointer-events: auto;
 }
 
 .about-section .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -734,7 +734,7 @@ pointer-events: auto;
 /* メンバーカード */
 .member-card {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -820,7 +820,7 @@ pointer-events: auto;
 }
 
 .disco-container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -865,7 +865,7 @@ pointer-events: auto;
   object-fit: cover;   /* 比率を保って枠に収める */
   display: block;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .disco-text {
@@ -925,7 +925,7 @@ pointer-events: auto;
   color: #fff;
   font-size: 0.75rem;
   padding: 1px 5px;
-  border-radius: 2px;
+  border-radius: 8px;
   font-weight: bold;
 }
 
@@ -958,7 +958,7 @@ transform: scale(1.05);
 opacity: 0.85;
 
 } 
-.member-img-wrap-top img { width: 100%; height: auto; display: block; object-fit: cover; border-radius: 8px;}
+.member-img-wrap-top img { width: 100%; height: auto; display: block; object-fit: cover; border-radius: 12px;}
 .member-text-top { margin-top: 8px; }
 .member-text-top h3 { font-size: 16px; margin: 0 0 4px 0; color: #d4b36a;}
 .members-grid-top .youtube-link { display: inline-block; font-size: 12px; color: #888; }
@@ -982,8 +982,7 @@ opacity: 0.85;
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px; 
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .mt0 { margin-top: 0; }
@@ -1102,7 +1101,7 @@ opacity: 0.85;
   padding: 10px 10px; 
   border: 1px solid var(--gold);
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 10px;
   background: transparent;
   color: var(--gold);
   
