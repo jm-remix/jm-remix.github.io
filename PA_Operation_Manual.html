@@ -24,10 +24,10 @@
         font-family:
           -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic",
           Meiryo, sans-serif;
-        line-height: 1.7;
+        line-height: 1.3;
       }
       .topbar {
-        height: 7px;
+        height: 0px;
         background: var(--blue);
       }
       main {
@@ -35,50 +35,50 @@
         margin: 0 auto;
         background: #fff;
         min-height: 100vh;
-        padding: 42px 56px 70px;
+        padding: 0px 40px 30px;
         box-shadow: 0 0 30px rgba(23, 50, 77, 0.08);
       }
       .cover {
         text-align: center;
-        padding: 28px 0 36px;
+        padding: 8px 0 0px;
       }
       .cover h1 {
         color: var(--navy);
-        font-size: 2rem;
-        margin: 0 0 10px;
-        letter-spacing: 0.04em;
+        font-size: 1.5rem;
+        margin: 0 0 0px;
+        letter-spacing: 0.02em;
       }
       .cover p {
         color: var(--gray);
         margin: 0;
-        font-size: 0.95rem;
+        font-size: 0.6rem;
       }
       h1.section {
         color: #fff;
         background: var(--navy);
         border-radius: 7px;
-        padding: 9px 18px;
-        font-size: 1.25rem;
-        margin: 34px 0 20px;
+        padding: 6px 18px;
+        font-size: 1rem;
+        margin: 15px 0 5px;
       }
       h2.step {
         color: var(--navy);
         background: var(--light);
         border: 1px solid var(--line);
         border-left: 5px solid var(--blue);
-        padding: 9px 14px;
-        font-size: 1.05rem;
-        margin: 28px 0 13px;
+        padding: 5px 14px;
+        font-size: 1rem;
+        margin: 8px 0 13px;
       }
       .device-list {
         border: 1px solid var(--line);
         border-radius: 7px;
         overflow: hidden;
-        margin-bottom: 18px;
+        margin-bottom: 8px;
       }
       .device {
         display: grid;
-        grid-template-columns: 220px 1fr;
+        grid-template-columns: 200px 1fr;
         border-bottom: 1px solid var(--line);
       }
       .device:last-child {
@@ -87,38 +87,38 @@
       .device-name {
         background: var(--pale);
         color: var(--blue);
-        font-weight: 700;
-        padding: 13px 16px;
+        font-weight: 400;
+        padding: 4px 6px;
       }
       .device-desc {
-        padding: 13px 16px;
+        padding: 4px 16px;
       }
       ul {
-        margin: 8px 0 12px;
-        padding-left: 1.5em;
+        margin: 5px 0 10px;
+        padding-left: 1.4em;
       }
       li {
-        margin: 5px 0;
+        margin: 4px 0;
       }
       .note {
         color: var(--gray);
-        font-size: 0.9rem;
-        margin: 7px 0 14px;
+        font-size: 0.8rem;
+        margin: 4px 0 4px;
       }
       .subhead {
         color: var(--blue);
-        font-weight: 700;
-        margin: 14px 0 5px;
+        font-weight: 500;
+        margin: 8px 0 5px;
       }
       .final-check {
         background: var(--pale);
         border: 1px solid var(--line);
         border-radius: 7px;
-        padding: 18px 22px;
+        padding: 4px 10px;
       }
       .final-check label {
         display: block;
-        padding: 6px 0;
+        padding: 1px 0;
         border-bottom: 1px solid #dde6eb;
       }
       .final-check label:last-child {
@@ -149,23 +149,28 @@
         body {
           background: #fff;
         }
+
         main {
           max-width: none;
           box-shadow: none;
-          padding: 20mm 15mm;
+          padding: 20mm 12mm 10mm;
         }
+
         .topbar {
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
         }
+
         h1.section {
           break-after: avoid;
         }
+
         h2.step {
           break-after: avoid;
         }
+
         .device,
         .final-check {
           break-inside: avoid;
@@ -183,13 +188,13 @@
       <h1 class="section">1. 使用デバイスと役割</h1>
       <div class="device-list">
         <div class="device">
-          <div class="device-name">【Mac】</div>
+          <div class="device-name">【Mac（右側）】</div>
           <div class="device-desc">
             Zoomホスト。礼拝スライドの共有やZoom全体の操作を行う。
           </div>
         </div>
         <div class="device">
-          <div class="device-name">【Windows】</div>
+          <div class="device-name">【Windows（左側）】</div>
           <div class="device-desc">
             Zoomゲスト。プロジェクターへの映像出力を行う。
           </div>
@@ -215,7 +220,7 @@
         <div class="device">
           <div class="device-name">【ワイヤレスマイク】</div>
           <div class="device-desc">
-            ワーシップ、献金、初めての来会者などに使用する。
+            ワーシップ、献金、新来会者などに使用する。
           </div>
         </div>
         <div class="device">
@@ -233,29 +238,41 @@
         <li>その他の音響機器の電源が入っていることを確認する。</li>
       </ul>
       <p class="note">
-        ※通常、アンプ（B）側に電源が集約されているが、念のため各機器の電源を確認する。電源が入っていない機器は、個別に電源を入れる。
+        ※上記は通常、アンプ（B）に電源が集約されていて既に電源が入っていることが多いが、電源が入っていない機器は、個別に電源を入れる。
       </p>
 
       <h2 class="step">STEP 2　Mac（Zoomホスト）の準備</h2>
       <ul>
         <li>MacでZoomを起動する。</li>
         <li>「JKCセッション」が終了していることを確認する。</li>
-        <li>Zoomにホストとして参加する。</li>
-        <li>「コンピュータオーディオ」に接続する。</li>
+        <li>
+          Zoomにホストとして参加する。（Zoomホームの左下の「礼拝」の「三点リーダー（…）」をクリックし「ミーティング開始」を選択する。
+        </li>
+        <li>「コンピュータオーディオで参加」をクリック。</li>
+        <li>
+          Zoom画面でESCボタンを押下し左下の「オーディオビデオ」が付いていることを確認する。
+        </li>
         <li>Firefoxを起動する。</li>
         <li>ブックマークの「礼拝」から「Googleドライブのスライド」を開く。</li>
-        <li>今日の日付のスライドを選択する。</li>
+        <li>
+          今日の日付のスライドを選択して、週報とスライド内容が合っているか確認する。
+        </li>
       </ul>
 
       <h2 class="step">STEP 3　Windows・プロジェクターの準備</h2>
       <ul>
-        <li>WindowsとプロジェクターをHDMIケーブルで接続する。</li>
         <li>
-          Windowsの電源を入れる。<br />※すでに電源が入っている場合が多い。
+          WindowsとプロジェクターをHDMIケーブルで接続する。（既に接続済の場合が多い。）
         </li>
-        <li>Edgeを起動する。</li>
-        <li>Gmailを開き、Macと同じアカウントでログインする。</li>
-        <li>Zoomにゲストとして参加する。</li>
+        <li>Windowsの電源を入れる。（※既に電源が入っている場合が多い。）</li>
+        <li>FireFoxを起動する。</li>
+        <li>
+          Gmailを開き、Macと同じアカウントでログインする。（既にログイン済の場合が多い。）
+        </li>
+        <li>
+          招待メールを開き、Zoomの参加リンクをタップする。（JKCのメールと間違えないように）
+        </li>
+        <li>Zoomアプリからにゲストとして参加し、Zoom画面を拡大する。</li>
         <li>プロジェクターに映像が出力されていることを確認する。</li>
       </ul>
 
@@ -263,52 +280,20 @@
       <ul>
         <li>iPadに電源ケーブルを接続する。</li>
         <li>パスコードを入力してロックを解除する。</li>
-        <li>メールを開き、Zoomの参加リンクをタップする。</li>
+        <li>
+          招待メールを開き、Zoomの参加リンクをタップする。（JKCのメールと間違えないように）
+        </li>
         <li>Zoomに参加する。</li>
-        <li>マイクがミュートになっていることを確認する。</li>
-      </ul>
-
-      <h2 class="step">STEP 5　BGMを流す</h2>
-      <p class="subhead">■ CDプレーヤーを使用する場合</p>
-      <ul>
+        <li>カメラへのアクセス許可が表示された場合は「許可」を選択する。</li>
         <li>
-          アンプとCDプレーヤーの電源を確認する。<br />※通常はSTEP
-          1で電源が入っている。
+          マイクのアイコンをタップし、マイクがミュート状態（赤い斜線など）になっていることを確認する。
         </li>
-        <li>CDプレーヤーでBGMを再生する。</li>
-        <li>ミキサーの15・16チャンネルで音量を調整する。</li>
-        <li>スピーカーから正常に音が出ていることを確認する。</li>
-      </ul>
-      <p class="subhead">■ Macから音声を流す場合</p>
-      <p>
-        Zoom側の音声やYouTubeなどの音楽をMacから流したい場合は、以下の操作を行う。
-      </p>
-      <ul>
-        <li>ミキサー右側にある「17～32」のボタンを押す。</li>
-        <li>ミキサーの23・24チャンネルで音量を調整する。</li>
-        <li>音声がスピーカーから正常に出ていることを確認する。</li>
-      </ul>
-
-      <h2 class="step">STEP 6　スライドを共有する</h2>
-      <ul>
-        <li>MacのZoomで「画面共有」を選択する。</li>
-        <li>デスクトップを共有する。</li>
-        <li>Firefoxで「Googleドライブのスライドショー」を開始する。</li>
         <li>
-          Windows
-          PC経由で、プロジェクターにスライドが表示されていることを確認する。
+          画面下部の「詳細」または「…」をタップして「オーディオの切断」を選択する。
         </li>
       </ul>
 
-      <h2 class="step">STEP 7　iPadの映像をスポットライトに設定する</h2>
-      <ul>
-        <li>MacのZoom画面で参加者の映像を確認する。</li>
-        <li>講壇用iPadの映像にある「三点リーダー（…）」をクリックする。</li>
-        <li>「スポットライト」を選択する。</li>
-        <li>講壇用iPadの映像がZoom画面に表示されていることを確認する。</li>
-      </ul>
-
-      <h2 class="step">STEP 8　ワイヤレスマイクの準備</h2>
+      <h2 class="step">STEP 5　賛美の練習とワイヤレスマイクの準備</h2>
       <ul>
         <li>ワイヤレスマイクに電池を入れる。</li>
         <li>ワイヤレスマイクの左側のボタンを長押しして電源を入れる。</li>
@@ -316,15 +301,64 @@
         <li>ミキサーの音量を確認する。</li>
         <li>実際に声を出して、正常に音声が出ることを確認する。</li>
       </ul>
+      <p class="note">※なお、ワイヤレスマイクは新来会者紹介でも使用する。</p>
 
-      <h2 class="step">STEP 9　礼拝を録音する</h2>
+      <h2 class="step">STEP 6　BGMを流す</h2>
+      <p class="note">※賛美の練習後、礼拝まで時間がない場合は割愛。</p>
+      <p class="subhead">■ CDプレーヤーを使用する場合</p>
       <ul>
-        <li>ミキサーの「USB REC」ボタンを押す。</li>
+        <li>
+          アンプとCDプレーヤーの電源を確認する。<br />
+          <p class="note">※通常はSTEP1で電源が入っている。</p>
+        </li>
+        <li>CDプレーヤーでBGMを再生する。</li>
+        <li>ミキサーの15・16チャンネルで音量を調整する。</li>
+        <li>スピーカーから正常に音が出ていることを確認する。</li>
+      </ul>
+      <p class="subhead">■ Macから音声を流す場合</p>
+      <p class="note">
+        ※Zoom側の音声やYouTubeなどの音楽をMacから流したい場合は、以下の操作を行う。
+      </p>
+      <ul>
+        <li>ミキサー右側にある「17～32」のボタンを押す。</li>
+        <li>ミキサーの23・24チャンネルで音量を調整する。</li>
+        <li>音声がスピーカーから正常に出ていることを確認する。</li>
+      </ul>
+
+      <h2 class="step">STEP 7　MacのZoomでスライドを共有する</h2>
+      <ul>
+        <li>MacのZoomの操作メニューから「画面共有」を選択する。</li>
+        <li>デスクトップを共有する。</li>
+        <li>Firefoxで「Googleドライブのスライドショー」を開始する。</li>
+      </ul>
+      <p class="note">
+        ※Windows PCで、プロジェクターにスライドが表示されていることを確認する。
+      </p>
+
+      <h2 class="step">STEP 8　iPadの映像をスポットライトに設定する</h2>
+      <ul>
+        <li>MacのZoom画面で参加者の映像を確認する。</li>
+        <li>講壇用iPadの映像にある「三点リーダー（…）」をクリックする。</li>
+        <li>「スポットライト」を選択する。</li>
+        <li>講壇用iPadの映像がZoom画面に表示されていることを確認する。</li>
+      </ul>
+
+      <h2 class="step">STEP 9　録音・録画する</h2>
+      <p class="subhead">■ Mac</p>
+      <ul>
+        <li>
+          Zoomミーティング画面の上部にある操作メニューで「レコーディング」または「録画」ボタンをクリック。
+        </li>
+        <li>表示された選択肢から「クラウドにレコーディング」を選択する。</li>
+      </ul>
+      <p class="note">※録画が開始されたことを確認する。</p>
+      <p class="subhead">■ ミキサー</p>
+      <ul>
+        <li>「USB REC」ボタンを押す。</li>
         <li>「↑」ボタンで「録音開始」を選択する。</li>
         <li>「ENTER」ボタンを押して録音を開始する。</li>
-        <li>録音が開始されたことを確認する。</li>
       </ul>
-      <p class="note">※録音開始後、録音状態になっていることを必ず確認する。</p>
+      <p class="note">※録音が開始されたことを確認する。</p>
 
       <h1 class="section">3. 礼拝開始前の最終確認</h1>
       <p>以下をすべて確認してから、礼拝を開始する。</p>
@@ -335,9 +369,10 @@
         <label
           ><input type="checkbox" />WindowsがZoomゲストとして参加している</label
         >
-        <label><input type="checkbox" />iPadがZoomに参加している</label>
         <label
-          ><input type="checkbox" />iPadのマイクがミュートになっている</label
+          ><input
+            type="checkbox"
+          />iPadがZoomに参加している（マイクがミュート、オーディオの切断がされている）</label
         >
         <label
           ><input
@@ -347,7 +382,11 @@
         <label
           ><input type="checkbox" />今日の日付のスライドが表示されている</label
         >
-        <label><input type="checkbox" />BGMがスピーカーから聞こえる</label>
+        <label
+          ><input
+            type="checkbox"
+          />ミキサーで録音、MacでZoomアプリの録画がされている</label
+        >
         <label
           ><input type="checkbox" />ワイヤレスマイクの音声が正常に出る</label
         >
@@ -361,56 +400,66 @@
 
       <h1 class="section">4. 礼拝終了後の操作</h1>
 
-      <h2 class="step">STEP 1　ミキサーの録音を停止する</h2>
+      <h2 class="step">STEP 1　録音・録画を停止する</h2>
+      <p class="subhead">■ ミキサー</p>
       <ul>
-        <li>ミキサーの「ENTER」ボタンを押して録音を停止する。</li>
-        <li>
-          画面下のツールバーにある「レコーディングを停止」（四角いアイコン /
-          □）をクリックするか、ミーティングを終了します。
-        </li>
+        <li>「ENTER」ボタンを押して録音を停止する。</li>
       </ul>
-      <h2 class="step">STEP 2　Macの共有停止・レコーディング停止をする</h2>
-      <ul>
-        <li>
-          画面上のボタンで停止する:
-          共有中に画面上部に表示されるフローティングメニューの赤い「共有停止」ボタンをクリックします。
-        </li>
-        <li>録音が停止したことを確認する。</li>
-        <li>
-          録音用USBメモリの空き容量が少なくなった場合は、担当役員に伝える。
-        </li>
-      </ul>
-
-      <h2 class="step">STEP 2　挨拶時にギャラリー表示にする</h2>
       <p class="note">
-        挨拶の際は、Zoom参加者の映像をプロジェクターに表示する。
+        ※録音が停止したことを確認する。<br />※録音用USBメモリの空き容量が少なくなった場合は、担当役員に伝える。
       </p>
+
+      <p class="subhead">■ Mac</p>
       <ul>
         <li>
-          ミーティング画面の右上にある「表示」ボタンをクリックし、「ギャラリー」を選択します。
+          Zoomミーティング画面の下部にあるツールバーの「レコーディングを停止」（四角いアイコン「□」）をクリックする。確認画面が表示された場合は「停止」をクリックする。
+        </li>
+      </ul>
+      <p class="note">※画面共有が終了したことを確認する。</p>
+
+      <h2 class="step">STEP 2　Zoomを画面共有を停止する</h2>
+      <ul>
+        <li>
+          Macの画面上部の操作メニューにある赤色の「共有停止」ボタンをクリックする。
+        </li>
+      </ul>
+      <p class="note">※録画が停止したことを確認する。</p>
+      <h2 class="step">STEP 3　挨拶時にギャラリー表示にする</h2>
+      <ul>
+        <li>
+          Zoom参加者をプロジェクターに表示する為、ミーティング画面の右上にある「表示」ボタンをクリックし、「ギャラリー」を選択する。
         </li>
       </ul>
 
-      <h2 class="step">STEP 3　挨拶・お知らせ終了後にBGMを流す</h2>
+      <h2 class="step">STEP 4　挨拶・お知らせ終了後にBGMを流す</h2>
       <ul>
-        <li>「2. 操作手順（礼拝開始前）STEP 5　BGMを流す」を参照する。</li>
+        <li>「2. 操作手順（礼拝開始前）STEP 6　BGMを流す」を参照する。</li>
       </ul>
 
-      <h2 class="step">STEP 4　ブレイクアウトルームを作成する</h2>
+      <h2 class="step">STEP 5　ブレイクアウトルームを作成する</h2>
       <ul>
         <li>Zoom画面下部にある「ブレイクアウトルーム」を選択する。</li>
-        <li>1. 作成するルームの数を決める。<br />※基本は1つ。</li>
-        <li>2. 「自動で割り当て」を選択する。</li>
-        <li>3. 参加者がルームに割り当てられたことを確認する。</li>
-        <li>4. 「ルームを開く」を選択する。</li>
+        <li>作成するルームの数を決める。（※基本は1つ）</li>
+        <li>「自動で割り当て」を選択する。</li>
+        <li>参加者がルームに割り当てられたことを確認する。</li>
+        <li>「ルームを開く」を選択する。</li>
       </ul>
 
-      <h2 class="step">STEP 5　音響機器の電源を切る</h2>
+      <h2 class="step">STEP 6　Zoomのミーティングを終了する</h2>
+      <ul>
+        <li>MacのZoom画面右下の「終了」をクリックする。</li>
+        <li>
+          「全員に対してミーティングを終了」または「ミーティングを退出」を選択する（自分の立場に応じて選択）
+        </li>
+      </ul>
+      <p class="note">※ミーティングが終了したことを確認する。</p>
+
+      <h2 class="step">STEP 7　音響機器の電源を切る</h2>
       <ul>
         <li>アンプ（B）の電源を切る。</li>
         <li>ミキサー（A）の電源を切る。</li>
       </ul>
-      <p class="note">※電源を入れたときと逆の順番で操作する。</p>
+      <p class="note">※通常、電源を切らずにBGMを流したままの場合が多い。</p>
     </main>
   </body>
 </html>
