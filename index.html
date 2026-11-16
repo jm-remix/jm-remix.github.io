@@ -5,357 +5,472 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="GENUINE GRACE OFFICIAL SITE。ニュース、バイオグラフィー、ディスコグラフィー、視聴・試聴、MV・映像コンテンツなどを掲載"
+      content="日本神の教会連盟の公式ホームページです。全国の諸教会のご案内や連盟の歩み、お知らせなどを掲載しています。"
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="GENUINE GRACE OFFICIAL SITE" />
-    <meta property="og:title" content="GENUINE GRACE OFFICIAL SITE" />
-    <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content="https://genuinegrace.com/" />
-    <meta property="og:image" content="https://genuinegrace.com/img/ogp.jpg" />
-    <meta property="fb:app_id" content="" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="GENUINE GRACE OFFICIAL SITE" />
-    <meta name="twitter:title" content="GENUINE GRACE OFFICIAL SITE" />
-    <meta
-      name="twitter:description"
-      content="GENUINE GRACE OFFICIAL SITE。ニュース、バイオグラフィー、ディスコグラフィー、視聴・試聴、MV・映像コンテンツなどを掲載"
-    />
-    <meta name="twitter:url" content="https://genuinegrace.com/" />
-    <meta name="twitter:image" content="https://genuinegrace.com/img/ogp.jpg" />
-
-    <title>GENUINE GRACE OFFICIAL SITE</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>日本神の教会連盟 | CHURCH OF GOD IN JAPAN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./js/swiper.js"></script>
-    <script src="./js/wow.js"></script>
-    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-
   <body>
-    <!-- bodyタグの直下などに配置 -->
-    <div id="overlay" class="overlay"></div>
-
-    <!-- ===== Intro Screen ===== -->
-    <div id="intro">
-      <video
-        id="intro-video"
-        src="img/back.mp4"
-        autoplay
-        muted
-        playsinline
-      ></video>
-
-      <div class="intro-text">GENUINE GRACE</div>
-    </div>
-
-    <!-- 背景動画 -->
-    <video id="bg-video" autoplay muted loop playsinline>
-      <source src="img/back.mp4" type="video/mp4" />
-    </video>
-
-    <!-- ===== Header ===== -->
-    <header class="header">
-      <a href="index.html" class="logo">Genuine Grace</a>
-
-      <!-- ハンバーガー -->
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <header class="site-header" id="siteHeader">
+      <div class="header-top">
+        <a href="index.html" class="brand-logo">
+          <img
+            src="img/logo_mark.svg"
+            alt="日本神の教会連盟 ロゴ"
+            class="logo-svg"
+          />
+          <div class="brand-text">
+            <span class="brand-ja">日本神の教会連盟</span>
+            <span class="brand-en">CHURCH OF GOD IN JAPAN</span>
+          </div>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="メニューを開閉">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+      <nav class="global-nav" id="mainNav">
+        <ul>
+          <li><a href="kaminokyoukaitowa.html">神の教会とは</a></li>
+          <li><a href="#churches">所属教会一覧</a></li>
+          <li><a href="kikanshi/kikanshi.html">機関誌</a></li>
+          <li><a href="kakukyoukai/oshirase.html">お知らせ</a></li>
+          <li><a href="100nenshi.html">100年史</a></li>
+          <li>
+            <a href="http://www.tamasei.ed.jp/" target="_blank" rel="noopener"
+              >玉川聖学院へ ↗</a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <!-- モバイルナビ -->
-    <nav class="mobile-nav" id="mobileNav">
-      <ul>
-        <li><a href="index.html">TOP</a></li>
-        <li><a href="news.html">NEWS</a></li>
-        <li><a href="biography.html">BIOGRAPHY</a></li>
-        <li><a href="discography.html">DISCOGRAPHY</a></li>
-        <li><a href="gallery.html">GALLERY</a></li>
-      </ul>
-    </nav>
-
-    <!-- ===== Hero ===== -->
-    <section class="hero wow animate__animated animate__bounceInUp">
-      <img src="img/hero-1.png" class="hero-img active" alt="" />
-      <img src="img/hero-2.png" class="hero-img" alt="" />
-      <img src="img/hero-3.png" class="hero-img" alt="" />
+    <section class="hero-visual hero">
+      <div class="hero-slider" id="heroSlider">
+        <div
+          class="slide active"
+          style="background-image: url(&quot;img/hero0.png&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;img/hero1.jpg&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;img/hero2.jpg&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;img/hero3.jpg&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;img/hero10.jpg&quot;)"
+        ></div>
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-inner fade-in">
+        <div class="hero-badge">
+          <img src="img/logo_white.svg" alt="" class="hero-emblem" />
+          <div class="hero-title-group">
+            <h1 class="hero-title">日本神の教会連盟</h1>
+            <p class="hero-en">CHURCH OF GOD IN JAPAN</p>
+          </div>
+        </div>
+        <p class="hero-catch">
+          キリストの愛と平和を分かち合い、<br
+            class="sp-only"
+          />地域とともに歩む交わりへ<br />
+          <span class="hero-subcatch"
+            >〜 北海道から沖縄まで、開かれた教会のネットワーク 〜</span
+          >
+        </p>
+      </div>
     </section>
 
-    <!-- ===== VIDEO ===== -->
-        <section id="video" class="section">
-      <h2>VIDEO</h2>
-<div class="swiper video-slider">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/TMwWbjo_sLQ?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
+    <section class="welcome-section">
+      <div class="container">
+        <div class="welcome-box fade-up">
+          <p class="welcome-lead">
+            ようこそ、日本神の教会連盟のホームページへ。
+          </p>
+          <p class="welcome-text">
+            私たち「神の教会」は、聖書に根ざしたキリスト教プロテスタントの教会です。<br />
+            日本神の教会連盟は、北海道から沖縄まで全国各地の諸教会が心を合わせ、共に祈り、仕え合う交わりです。
+          </p>
+        </div>
       </div>
-      <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/pyl54VhcNn8?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
+    </section>
+
+    <section class="illust-nav-section">
+      <div class="container">
+        <div class="illust-grid">
+          <a href="kaminokyoukaitowa.html" class="illust-card fade-up">
+            <div class="illust-img-wrap">
+              <img src="img/illust_church.svg" alt="神の教会とは イラスト" />
+            </div>
+            <h2 class="illust-title">神の教会とは</h2>
+            <p class="illust-desc">
+              信仰の歩みや、私たちが大切にしている教会の姿をご紹介します。
+            </p>
+          </a>
+          <a href="#churches" class="illust-card fade-up">
+            <div class="illust-img-wrap">
+              <img src="img/illust_japan.svg" alt="全国の教会一覧 イラスト" />
+            </div>
+            <h2 class="illust-title">全国の教会一覧</h2>
+            <p class="illust-desc">
+              北海道・関東・関西・九州・沖縄の所属諸教会をお探しいただけます。
+            </p>
+          </a>
+          <a href="kakukyoukai/oshirase.html" class="illust-card fade-up">
+            <div class="illust-img-wrap">
+              <img src="img/illust_guide.svg" alt="お知らせ・機関誌 イラスト" />
+            </div>
+            <h2 class="illust-title">お知らせ・機関誌</h2>
+            <p class="illust-desc">
+              連盟からの最新のお知らせや機関誌、100年史のご案内です。
+            </p>
+          </a>
+        </div>
       </div>
-      <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/DdfaDQmENGs?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
+    </section>
+
+    <main class="main-content" id="churches">
+      <div class="container">
+        <div class="section-heading-wrap fade-up">
+          <span class="section-tag">CHURCH DIRECTORY</span>
+          <h2 class="section-heading">日本神の教会連盟所属の諸教会</h2>
+          <p class="section-lead">
+            お近くの教会の名前をクリックすると、各教会の案内ページをご覧いただけます。
+          </p>
+        </div>
+
+        <div class="area-filter fade-up">
+          <a href="#area-hokkaido" class="area-pill">北海道地区</a>
+          <a href="#area-kanto" class="area-pill">関東地区</a>
+          <a href="#area-kansai" class="area-pill">関西地区</a>
+          <a href="#area-kyushu" class="area-pill">九州地区</a>
+          <a href="#area-okinawa" class="area-pill">沖縄地区</a>
+        </div>
+
+        <!-- 北海道地区 -->
+        <section class="area-group fade-up" id="area-hokkaido">
+          <div class="area-header">
+            <h3 class="area-title"><span class="area-dot"></span>北海道地区</h3>
+            <span class="area-badge">1 教会</span>
+          </div>
+          <ul class="church-grid">
+            <li>
+              <a href="kakukyoukai/sorachi.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">空知太栄光キリスト教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!-- 関東地区 -->
+        <section class="area-group fade-up" id="area-kanto">
+          <div class="area-header">
+            <h3 class="area-title"><span class="area-dot"></span>関東地区</h3>
+            <span class="area-badge">9 教会</span>
+          </div>
+          <ul class="church-grid">
+            <li>
+              <a href="kakukyoukai/toyama.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">戸山教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/kiyose.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">清瀬旭ヶ丘教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/tamagawa.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">玉川神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/nerima.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">練馬神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/hagiyama.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">萩山神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/nishikunitachi.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">西国立神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/tachikawa.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">立川神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/kitano.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">北野キリスト教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/fukaya.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">深谷神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!-- 関西地区 -->
+        <section class="area-group fade-up" id="area-kansai">
+          <div class="area-header">
+            <h3 class="area-title"><span class="area-dot"></span>関西地区</h3>
+            <span class="area-badge">2 教会</span>
+          </div>
+          <ul class="church-grid">
+            <li>
+              <a href="kakukyoukai/kounoike.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">大阪鴻池神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/tarumi.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">垂水神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!-- 九州地区 -->
+        <section class="area-group fade-up" id="area-kyushu">
+          <div class="area-header">
+            <h3 class="area-title"><span class="area-dot"></span>九州地区</h3>
+            <span class="area-badge">3 教会</span>
+          </div>
+          <ul class="church-grid">
+            <li>
+              <a href="kakukyoukai/futsukaichi.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">二日市栄光キリスト教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/imajyuku.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">今宿神の教会</span
+                  ><span class="church-sub">今宿キリスト教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/saga.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">佐賀神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!-- 沖縄地区 -->
+        <section class="area-group fade-up" id="area-okinawa">
+          <div class="area-header">
+            <h3 class="area-title"><span class="area-dot"></span>沖縄地区</h3>
+            <span class="area-badge">2 教会</span>
+          </div>
+          <ul class="church-grid">
+            <li>
+              <a href="kakukyoukai/okinawaameku.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">沖縄天久神の教会</span>
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+            <li>
+              <a href="kakukyoukai/tomishiro.html" class="church-item"
+                ><span class="church-icon">⛪</span>
+                <div class="church-label">
+                  <span class="church-name">豊見城神の教会</span
+                  ><span class="church-sub"
+                    >沖縄ゴスペルファミリーチャーチ</span
+                  >
+                </div>
+                <span class="church-arrow">›</span></a
+              >
+            </li>
+          </ul>
+        </section>
       </div>
-      <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/3YfvznzVjGk?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
+    </main>
+
+    <section class="sub-banners-section">
+      <div class="container">
+        <div class="sub-banners-grid fade-up">
+          <a href="kikanshi/kikanshi.html" class="sub-banner"
+            ><span class="sub-tag">PUBLICATION</span>
+            <h3>機関誌のご案内</h3>
+            <p>連盟の活動や各教会の様子をお届けします</p></a
+          >
+          <a href="100nenshi.html" class="sub-banner"
+            ><span class="sub-tag">HISTORY</span>
+            <h3>連盟 100年史</h3>
+            <p>神の教会の歩みと歴史の記録</p></a
+          >
+          <a
+            href="http://www.tamasei.ed.jp/"
+            target="_blank"
+            rel="noopener"
+            class="sub-banner sub-banner-school"
+            ><span class="sub-tag">RELATED SCHOOL</span>
+            <h3>玉川聖学院へ ↗</h3>
+            <p>キリスト教主義の中高一貫女子校</p></a
+          >
+        </div>
       </div>
-      <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/epGFcqbS3xU?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="img/logo_mark.svg" alt="" class="footer-logo" />
+          <div>
+            <p class="footer-name">日本神の教会連盟</p>
+            <p class="footer-en">CHURCH OF GOD IN JAPAN</p>
+          </div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="kaminokyoukaitowa.html">神の教会とは</a></li>
+          <li><a href="#churches">所属教会一覧</a></li>
+          <li><a href="kikanshi/kikanshi.html">機関誌</a></li>
+          <li><a href="kakukyoukai/oshirase.html">お知らせ</a></li>
+          <li><a href="100nenshi.html">100年史</a></li>
+          <li>
+            <a href="http://www.tamasei.ed.jp/" target="_blank" rel="noopener"
+              >玉川聖学院</a
+            >
+          </li>
+        </ul>
       </div>
-      <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/eGgw0ejD5cI?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
+      <div class="footer-copy">
+        <p>&copy; 日本神の教会連盟 All Rights Reserved.</p>
       </div>
-      <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/A7M5k1Wlwnk?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
-      </div>
-            <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/jO2nyaLwLnQ?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
-      </div>
-            <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/3ObnTnU7t0M?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
-      </div>
-                  <div class="swiper-slide">
-        <iframe
-          src="https://www.youtube.com/embed/eCiPS3A84uM?enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
+    </footer>
+    <!-- 教会詳細モーダル -->
+    <div
+      class="church-modal"
+      id="churchModal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalChurchName"
+    >
+      <div class="church-modal-backdrop" id="modalBackdrop"></div>
+      <div class="church-modal-dialog">
+        <button
+          type="button"
+          class="church-modal-close"
+          id="modalClose"
+          aria-label="閉じる"
+        >
+          &times;
+        </button>
+        <div class="church-modal-img-wrap" id="modalImgWrap">
+          <img src="" alt="" id="modalChurchImg" />
+        </div>
+        <div class="church-modal-body">
+          <p class="church-modal-sub" id="modalChurchSub"></p>
+          <h3 class="church-modal-title" id="modalChurchName"></h3>
+          <dl class="church-modal-info">
+            <div class="info-row" id="modalAddressRow">
+              <dt>住所</dt>
+              <dd id="modalAddress"></dd>
+            </div>
+            <div class="info-row" id="modalTelRow">
+              <dt>電話</dt>
+              <dd><a href="" id="modalTel"></a></dd>
+            </div>
+            <div class="info-row" id="modalWebRow">
+              <dt id="modalWebLabel">ホームページ</dt>
+              <dd>
+                <a href="" id="modalWeb" target="_blank" rel="noopener"></a>
+              </dd>
+            </div>
+          </dl>
+          <div class="church-modal-actions">
+            <a href="" class="church-modal-detail-btn" id="modalDetailLink"
+              >教会の案内ページを見る ›</a
+            >
+          </div>
+        </div>
       </div>
     </div>
-    </section>
-
-    <!-- ===== Sections ===== -->
-    <div class="intro-text-box wow animate__animated animate__fadeInUp">
-        <h2>NEWS</h2>
-          </div>
-      <div class="news-list">
-        <div class="news-item wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
-          <div class="news-meta">
-            <span class="date">2026.03.01</span>
-            <span class="news-separator">|</span>
-            <span class="category">RELEASE</span>
-            <!-- 新着の場合のみ表示したいときは .new-badge を追加できます -->
-            <!-- <span class="new-badge">NEW</span> -->
-          </div>
-          <p class="content">
-            <a href="https://youtu.be/3YfvznzVjGk" target="_blank"
-              >韓国の人気ワーシップソング「내 안에 부어주소서(Pour Your Spirit Over Me)」の日本語歌詞の制作をMeguが依頼され、JMのアレンジによるカバー楽曲としてYouTubeで公開しました！</a
-            >
-          </p>
-        </div>
-        <div class="news-item wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-          <div class="news-meta">
-            <span class="date">2025.10.20</span>
-            <span class="news-separator">|</span>
-            <span class="category">MEDIA</span>
-            <!-- 新着の場合のみ表示したいときは .new-badge を追加できます -->
-            <!-- <span class="new-badge">NEW</span> -->
-          </div>
-          <p class="content">
-            <a href="https://youtu.be/DdfaDQmENGs" target="_blank"
-              >渋谷クロスFM 【午後のティータイム〜izu MI
-              igaの音楽大好きっ!】にMeguが出演した回がYouTubeアップされました！</a
-            >
-          </p>
-        </div>
-
-        <div class="news-item wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
-          <div class="news-meta">
-            <span class="date">2023.07.05</span>
-            <span class="news-separator">|</span>
-            <span class="category">RELEASE</span>
-            <!-- 新着の場合のみ表示したいときは .new-badge を追加できます -->
-            <!-- <span class="new-badge">NEW</span> -->
-          </div>
-          <p class="content">
-            <a href="https://linkco.re/7mEdD62Q"
-              >楽曲データをご提供いただき、JMが「ハナミズキ」をリミックス。<br />
-              各音楽配信サービスにて配信しております。</a
-            >
-          </p>
-        </div>
-
-        <div class="news-item wow animate__animated animate__fadeInUp" data-wow-delay="0.7s">
-          <div class="news-meta">
-            <span class="date">2023.05.12</span>
-            <span class="news-separator">|</span>
-            <span class="category">RELEASE</span>
-            <!-- 新着の場合のみ表示したいときは .new-badge を追加できます -->
-            <!-- <span class="new-badge">NEW</span> -->
-          </div>
-          <p class="content">
-            <a href="https://big-up.style/Q2lNzddnYG"
-              >Meguソロ 1st SINGLE『くちづけ〜雅歌 1:2〜』をMegumi
-              Grace名義でリリース。 各音楽配信サービスにて配信しております。</a
-            ><br />
-            <a href="https://youtu.be/pyl54VhcNn8">YouTubeはこちら</a>
-          </p>
-        </div>
-
-        <div class="news-item wow animate__animated animate__fadeInUp" data-wow-delay="0.9s">
-          <div class="news-meta">
-            <span class="date">2020.05.08</span>
-            <span class="news-separator">|</span>
-            <span class="category">RELEASE</span>
-          </div>
-          <p class="content">
-            <a href="https://prtimes.jp/main/html/rd/p/000000476.000011969.html"
-              >小室哲哉氏とのコラボや安室奈美恵氏への楽曲提供をした Jamaster
-              AがMeguをフィーチャーした「Candle Light We Burn (Japanese
-              Version)」 をリリース！</a
-            >
-          </p>
-        </div>
-      </div>
-      <a class="more-btn" href="news.html">MORE</a>
-    </section>
-
-    <section id="bio" class="section wow animate__animated animate__lightSpeedIn">
-      <h2>BIOGRAPHY</h2>
-      <div class="members-grid-top">
-        <!-- メンバー1 -->
-        <a href="biography.html" class="member-card-top wow animate__animated animate__flipInX" data-wow-delay="0.1s">
-          <div class="member-img-wrap-top">
-            <img src="img/bio-1s.jpg" alt="Member 1" />
-          </div>
-          <div class="member-text-top">
-            <h3>JM (Key, Prog)</h3>
-          </div>
-        </a>
-
-        <!-- メンバー2 -->
-        <a href="biography.html" class="member-card-top wow animate__animated animate__slideInDown" data-wow-delay="0.3s">
-          <div class="member-img-wrap-top">
-            <img src="img/bio-2s.jpg" alt="Member 2" />
-          </div>
-          <div class="member-text-top">
-            <h3>Megu (Vo)</h3>
-          </div>
-        </a>
-
-        <!-- メンバー3 -->
-        <a href="biography.html" class="member-card-top wow animate__animated animate__flipInY" data-wow-delay="0.5s">
-          <div class="member-img-wrap-top">
-            <img src="img/bio-3s.jpg" alt="Member 3" />
-          </div>
-          <div class="member-text-top">
-            <h3>Shinobu (G)</h3>
-          </div>
-        </a>
-      </div>
-      <a class="more-btn" href="biography.html">MORE</a>
-    </section>
-
-    <section id="discography" class="section">
-      <h2>DISCOGRAPHY</h2>
-      <div class="gallery-grid">
-        <img src="img/eternity.jpg" data-full="img/eternity.jpg" class="img-eternity  wow animate__animated animate__swing" data-wow-delay="0.1s"/>
-        <img src="img/air.jpg" data-full="img/air.jpg" class="img-air  wow animate__animated animate__flipInX" data-wow-delay="0.5s"/>
-        <img
-          src="img/A-Little-Bit-Of-Heaven.jpg"
-          data-full="img/A-Little-Bit-Of-Heaven.jpg" class="img-heaven wow animate__animated animate__flipInX" data-wow-delay="0.3s"
-        />
-      </div>
-      <a class="more-btn" href="discography.html">MORE</a>
-    </section>
-
-    <section id="gallery" class="section">
-      <h2>GALLERY</h2>
-
-      <div class="gallery-grid wow animate__animated animate__lightSpeedIn">
-        <img
-          src="img/gallery/thumb-01.jpg"
-          data-full="img/gallery/photo-01.jpg" class="img wow animate__animated animate__flipInX" data-wow-delay="0.1s"/>
-        <img
-          src="img/gallery/thumb-02.jpg"
-          data-full="img/gallery/photo-02.jpg" class="img wow animate__animated animate__swing" data-wow-delay="0.3s"/>
-        <img
-          src="img/gallery/thumb-03.jpg"
-          data-full="img/gallery/photo-03.jpg" class="img wow animate__animated animate__flipInX" data-wow-delay="0.2s"/>
-        <img
-          src="img/gallery/thumb-04.jpg"
-          data-full="img/gallery/photo-04.jpg" class="img wow animate__animated animate__flipIny" data-wow-delay="0.5s"/>
-        <img
-          src="img/gallery/thumb-05.jpg"
-          data-full="img/gallery/photo-05.jpg" class="img wow animate__animated animate__swing" data-wow-delay="0.4s"/>
-        <img
-          src="img/gallery/thumb-06.jpg"
-          data-full="img/gallery/photo-06.jpg" class="img wow animate__animated animate__flipIny" data-wow-delay="0.6s"/>
-      </div>
-      <a class="more-btn" href="gallery.html">MORE</a>
-    </section>
-
-    <!-- バナー -->
-    <div class="banner-section mb30 wow animate__animated animate__fadeInUp">
-      <a href="https://www.makibito.net/search/label/Wednesday" target="_blank">
-        <img
-          src="img/megu_ccm_insight.png"
-          alt="MeguのCCM insight! 隔週水曜日 夜10:14〜"
-        />
-      </a>
-    </div>
-
-    <script src="js/main.js"></script>
-    <!-- Scroll to Top -->
-    <div id="toTop" aria-label="ページトップへ">
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-        <path d="M12 5l-7 7h4v7h6v-7h4z" />
-      </svg>
-    </div>
-    <!-- ===== Gallery Modal ===== -->
-    <div id="gallery-modal">
-      <span class="modal-close">&times;</span>
-
-      <button class="modal-nav prev" aria-label="前へ">‹</button>
-      <img id="modal-img" src="" alt="" />
-      <button class="modal-nav next" aria-label="次へ">›</button>
-    </div>
-     <script src="https://www.youtube.com/iframe_api"></script>
-       <script>
-      new WOW().init();
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>
