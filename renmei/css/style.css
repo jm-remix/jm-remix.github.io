@@ -513,3 +513,13 @@ ul { list-style: none; margin: 0; padding: 0; }
         gap: 6px;
     }
 }
+
+.sp-br {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .sp-br {
+    display: block;
+  }
+}
