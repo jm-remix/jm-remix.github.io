@@ -523,3 +523,23 @@ ul { list-style: none; margin: 0; padding: 0; }
     display: block;
   }
 }
+
+/* 日本語・英語表記の中央揃え */
+.brand-text {
+    align-items: center;
+}
+
+.brand-en {
+    text-align: center;
+    width: 100%;
+}
+
+.hero-title-group {
+    text-align: center;
+    width: 100%;
+}
+
+.hero-en {
+    text-align: center;
+    width: 100%;
+}
