@@ -109,34 +109,341 @@
 
     <section class="illust-nav-section">
       <div class="container">
-        <div class="illust-grid">
-          <a href="kaminokyoukaitowa.html" class="illust-card fade-up">
-            <div class="illust-img-wrap">
-              <img src="img/illust_church.svg" alt="神の教会とは イラスト" />
+        <div class="illust-slider-wrapper fade-up" id="illustSliderWrapper">
+          <!-- 前へボタン -->
+          <button
+            type="button"
+            class="illust-slider-arrow prev"
+            id="illustPrevBtn"
+            aria-label="前へ"
+          >
+            ‹
+          </button>
+
+          <!-- スライダー表示枠 -->
+          <div class="illust-slider-viewport" id="illustSliderViewport">
+            <div class="illust-slider-track" id="illustSliderTrack">
+              <!-- 1. 神の教会とは -->
+              <a href="kaminokyoukaitowa.html" class="illust-card">
+                <div class="illust-img-wrap">
+                  <img
+                    src="img/illust_church.svg"
+                    alt="神の教会とは イラスト"
+                  />
+                </div>
+                <h2 class="illust-title">神の教会とは</h2>
+                <p class="illust-desc">
+                  信仰の歩みや、私たちが大切にしている教会の姿をご紹介します。
+                </p>
+              </a>
+
+              <!-- 2. 全国の教会一覧 -->
+              <a href="#churches" class="illust-card">
+                <div class="illust-img-wrap">
+                  <img
+                    src="img/illust_japan.svg"
+                    alt="全国の教会一覧 イラスト"
+                  />
+                </div>
+                <h2 class="illust-title">全国の教会一覧</h2>
+                <p class="illust-desc">
+                  北海道・関東・関西・九州・沖縄の所属諸教会をお探しいただけます。
+                </p>
+              </a>
+
+              <!-- 3. フォトギャラリー（新設） -->
+              <a href="photo.html" class="illust-card">
+                <div class="illust-img-wrap">
+                  <!-- カメラと風景のSVGイラスト -->
+                  <svg
+                    viewBox="0 0 180 150"
+                    width="160"
+                    height="135"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="フォトギャラリー イラスト"
+                  >
+                    <circle cx="90" cy="78" r="58" fill="#eef5ea" />
+                    <!-- 後ろの写真フレーム -->
+                    <g transform="rotate(-8 75 75)">
+                      <rect
+                        x="36"
+                        y="36"
+                        width="72"
+                        height="60"
+                        rx="8"
+                        fill="#ffffff"
+                        stroke="#86ad63"
+                        stroke-width="2.5"
+                      />
+                      <rect
+                        x="43"
+                        y="43"
+                        width="58"
+                        height="40"
+                        rx="4"
+                        fill="#d8ecf5"
+                      />
+                      <circle cx="57" cy="55" r="5" fill="#f2c166" />
+                      <path
+                        d="M43 83 L63 63 L78 76 L88 67 L101 83 Z"
+                        fill="#78a65a"
+                      />
+                    </g>
+                    <!-- 前のカメラ -->
+                    <g transform="translate(64, 62)">
+                      <rect
+                        x="18"
+                        y="4"
+                        width="24"
+                        height="10"
+                        rx="3"
+                        fill="#5c8a47"
+                      />
+                      <rect
+                        x="4"
+                        y="11"
+                        width="72"
+                        height="48"
+                        rx="10"
+                        fill="#ffffff"
+                        stroke="#3f6330"
+                        stroke-width="2.5"
+                      />
+                      <rect
+                        x="4"
+                        y="22"
+                        width="72"
+                        height="26"
+                        fill="#eef5ea"
+                      />
+                      <circle
+                        cx="40"
+                        cy="35"
+                        r="15"
+                        fill="#ffffff"
+                        stroke="#3f6330"
+                        stroke-width="2.5"
+                      />
+                      <circle cx="40" cy="35" r="9" fill="#6ba5c4" />
+                      <circle cx="36" cy="31" r="2.8" fill="#ffffff" />
+                      <circle cx="64" cy="18" r="3" fill="#d47a5a" />
+                    </g>
+                  </svg>
+                </div>
+                <h2 class="illust-title">フォトギャラリー</h2>
+                <p class="illust-desc">
+                  連盟の行事や各教会の礼拝・交わりの様子を写真でご覧いただけます。
+                </p>
+              </a>
+
+              <!-- 4. お知らせ -->
+              <a href="kakukyoukai/oshirase.html" class="illust-card">
+                <div class="illust-img-wrap">
+                  <!-- お手紙と鳩・お知らせのSVGイラスト -->
+                  <svg
+                    viewBox="0 0 180 150"
+                    width="160"
+                    height="135"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="お知らせ イラスト"
+                  >
+                    <circle cx="90" cy="78" r="58" fill="#fdf6f0" />
+                    <!-- 便箋 -->
+                    <rect
+                      x="54"
+                      y="30"
+                      width="72"
+                      height="64"
+                      rx="6"
+                      fill="#ffffff"
+                      stroke="#d47a5a"
+                      stroke-width="2.5"
+                    />
+                    <line
+                      x1="66"
+                      y1="46"
+                      x2="104"
+                      y2="46"
+                      stroke="#d47a5a"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="66"
+                      y1="57"
+                      x2="114"
+                      y2="57"
+                      stroke="#e5b8a6"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="66"
+                      y1="68"
+                      x2="98"
+                      y2="68"
+                      stroke="#e5b8a6"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                    <!-- 封筒下部 -->
+                    <path
+                      d="M46 64 L90 92 L134 64 L134 114 C134 118 130 122 126 122 L54 122 C50 122 46 118 46 114 Z"
+                      fill="#f8ece3"
+                      stroke="#d47a5a"
+                      stroke-width="2.5"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M46 118 L78 90 M134 118 L102 90"
+                      stroke="#d47a5a"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <!-- 封蝋（ハート/クロス風アクセント） -->
+                    <circle cx="90" cy="92" r="9" fill="#d47a5a" />
+                    <path
+                      d="M90 87 V97 M86 91 H94"
+                      stroke="#ffffff"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <h2 class="illust-title">お知らせ</h2>
+                <p class="illust-desc">
+                  連盟からの最新のお知らせや各種集会・行事のご案内です。
+                </p>
+              </a>
+
+              <!-- 5. 機関誌（分離） -->
+              <a href="kikanshi/kikanshi.html" class="illust-card">
+                <div class="illust-img-wrap">
+                  <!-- 開いた本・機関誌のSVGイラスト -->
+                  <svg
+                    viewBox="0 0 180 150"
+                    width="160"
+                    height="135"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="機関誌 イラスト"
+                  >
+                    <circle cx="90" cy="78" r="58" fill="#eef5ea" />
+                    <!-- 本の表紙 -->
+                    <rect
+                      x="34"
+                      y="46"
+                      width="112"
+                      height="70"
+                      rx="6"
+                      fill="#5c8a47"
+                    />
+                    <!-- 左ページ -->
+                    <path
+                      d="M90 46 C76 42 52 43 40 48 L40 110 C52 105 76 104 90 109 Z"
+                      fill="#ffffff"
+                      stroke="#3f6330"
+                      stroke-width="2.2"
+                      stroke-linejoin="round"
+                    />
+                    <!-- 右ページ -->
+                    <path
+                      d="M90 46 C104 42 128 43 140 48 L140 110 C128 105 104 104 90 109 Z"
+                      fill="#ffffff"
+                      stroke="#3f6330"
+                      stroke-width="2.2"
+                      stroke-linejoin="round"
+                    />
+                    <!-- ページ内の文章ライン -->
+                    <line
+                      x1="50"
+                      y1="60"
+                      x2="78"
+                      y2="59"
+                      stroke="#86ad63"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="50"
+                      y1="71"
+                      x2="80"
+                      y2="70"
+                      stroke="#b5cfa2"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="50"
+                      y1="82"
+                      x2="76"
+                      y2="81"
+                      stroke="#b5cfa2"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="50"
+                      y1="93"
+                      x2="80"
+                      y2="92"
+                      stroke="#b5cfa2"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="100"
+                      y1="60"
+                      x2="128"
+                      y2="59"
+                      stroke="#86ad63"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="100"
+                      y1="71"
+                      x2="130"
+                      y2="70"
+                      stroke="#b5cfa2"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="100"
+                      y1="82"
+                      x2="125"
+                      y2="81"
+                      stroke="#b5cfa2"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                    />
+                    <!-- しおりリボン -->
+                    <path
+                      d="M90 109 L85 125 L90 121 L95 125 Z"
+                      fill="#d47a5a"
+                    />
+                  </svg>
+                </div>
+                <h2 class="illust-title">機関誌</h2>
+                <p class="illust-desc">
+                  連盟の活動報告や各教会の証しをお届けする機関誌・100年史のご案内です。
+                </p>
+              </a>
             </div>
-            <h2 class="illust-title">神の教会とは</h2>
-            <p class="illust-desc">
-              信仰の歩みや、私たちが大切にしている教会の姿をご紹介します。
-            </p>
-          </a>
-          <a href="#churches" class="illust-card fade-up">
-            <div class="illust-img-wrap">
-              <img src="img/illust_japan.svg" alt="全国の教会一覧 イラスト" />
-            </div>
-            <h2 class="illust-title">全国の教会一覧</h2>
-            <p class="illust-desc">
-              北海道・関東・関西・九州・沖縄の所属諸教会をお探しいただけます。
-            </p>
-          </a>
-          <a href="kakukyoukai/oshirase.html" class="illust-card fade-up">
-            <div class="illust-img-wrap">
-              <img src="img/illust_guide.svg" alt="お知らせ・機関誌 イラスト" />
-            </div>
-            <h2 class="illust-title">お知らせ・機関誌</h2>
-            <p class="illust-desc">
-              連盟からの最新のお知らせや機関誌、100年史のご案内です。
-            </p>
-          </a>
+          </div>
+
+          <!-- 次へボタン -->
+          <button
+            type="button"
+            class="illust-slider-arrow next"
+            id="illustNextBtn"
+            aria-label="次へ"
+          >
+            ›
+          </button>
+
+          <!-- インジケーター（ドット） -->
+          <div class="illust-slider-dots" id="illustSliderDots"></div>
         </div>
       </div>
     </section>
