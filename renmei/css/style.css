@@ -92,14 +92,14 @@ ul { list-style: none; margin: 0; padding: 0; }
     color: var(--white); 
     overflow: hidden;
     background: linear-gradient(125deg, #6b9651 0%, #86ad63 50%, #a5c27b 100%);
-    padding: 90px 20px 80px; /* 上下の余白を約1.3〜1.5倍に拡張 */
+    padding: 90px 20px 80px; 
 }
 
 .hero-inner { 
     position: relative; 
     z-index: 2; 
     max-width: 760px; 
-    margin-bottom: 40px; /* ロゴとウェルカムメッセージの間隔 */
+    margin-bottom: 10px; /* ロゴとウェルカムメッセージの間隔 */
 }
 /* ウェルカムセクション */
 .welcome-section {
