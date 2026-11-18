@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="日本神の教会連盟のよくある質問（Q&A）ページです。キリスト教や信仰、教会への参加、初めてお越しになる方からの疑問にお答えします。"
+    />
+    <title>よくある質問（Q&A） | 日本神の教会連盟</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* Q&Aページ専用・ポップで温かみのある追加スタイル */
+      .qa-nav-pills {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 44px;
+      }
+      .qa-nav-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: var(--white);
+        border: 2px solid var(--green-border);
+        color: var(--green-dark);
+        padding: 10px 22px;
+        border-radius: 50px;
+        font-family: var(--font-maru);
+        font-size: 0.95rem;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(92, 138, 71, 0.08);
+      }
+      .qa-nav-pill:hover {
+        background-color: var(--green-main);
+        border-color: var(--green-main);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+      .qa-nav-pill.pill-terracotta:hover {
+        background-color: var(--accent-terracotta);
+        border-color: var(--accent-terracotta);
+      }
+      .qa-nav-pill.pill-sky:hover {
+        background-color: var(--accent-sky);
+        border-color: var(--accent-sky);
+      }
+
+      .qa-category-box {
+        background-color: var(--white);
+        border-radius: 20px;
+        padding: 36px 40px;
+        margin-bottom: 40px;
+        box-shadow: 0 6px 24px rgba(63, 99, 48, 0.06);
+        border: 1px solid #eaf0e6;
+        scroll-margin-top: 110px;
+      }
+
+      .qa-category-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 28px;
+        border-bottom: 2px dashed var(--green-border);
+      }
+
+      .qa-category-title-wrap {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .qa-num-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: var(--green-main);
+        color: var(--white);
+        font-family: var(--font-maru);
+        font-size: 1.25rem;
+        font-weight: 700;
+        flex-shrink: 0;
+        box-shadow: 0 4px 10px rgba(92, 138, 71, 0.25);
+      }
+      .qa-num-badge.badge-sky {
+        background-color: var(--accent-sky);
+        box-shadow: 0 4px 10px rgba(107, 165, 196, 0.25);
+      }
+      .qa-num-badge.badge-terracotta {
+        background-color: var(--accent-terracotta);
+        box-shadow: 0 4px 10px rgba(212, 122, 90, 0.25);
+      }
+
+      .qa-category-title {
+        font-family: var(--font-maru);
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: var(--green-dark);
+        margin: 0;
+      }
+      .qa-category-sub {
+        font-size: 0.85rem;
+        color: var(--text-sub);
+        margin: 4px 0 0;
+      }
+
+      .qa-header-illust {
+        flex-shrink: 0;
+        width: 110px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .qa-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .qa-item {
+        background-color: #fafcf9;
+        border: 1.5px solid #e3ede0;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.25s ease;
+      }
+      .qa-item:hover {
+        border-color: var(--green-main);
+        box-shadow: 0 6px 18px rgba(92, 138, 71, 0.08);
+      }
+      .qa-item[open] {
+        background-color: var(--white);
+        border-color: var(--green-main);
+      }
+
+      .qa-question {
+        list-style: none;
+        cursor: pointer;
+        padding: 18px 22px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: var(--font-maru);
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: var(--green-dark);
+        user-select: none;
+      }
+      .qa-question::-webkit-details-marker {
+        display: none;
+      }
+
+      .q-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background-color: var(--green-light);
+        color: var(--green-main);
+        font-family: var(--font-maru);
+        font-size: 1.05rem;
+        font-weight: 700;
+        flex-shrink: 0;
+        border: 1.5px solid var(--green-border);
+      }
+      .qa-item[open] .q-badge {
+        background-color: var(--green-main);
+        color: var(--white);
+        border-color: var(--green-main);
+      }
+
+      .q-text {
+        flex-grow: 1;
+        line-height: 1.5;
+      }
+
+      .q-toggle-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: var(--white);
+        border: 1px solid var(--green-border);
+        color: var(--green-main);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: 700;
+        flex-shrink: 0;
+        transition:
+          transform 0.25s ease,
+          background-color 0.25s ease;
+      }
+      .qa-item[open] .q-toggle-icon {
+        transform: rotate(45deg);
+        background-color: var(--green-light);
+      }
+
+      .qa-answer {
+        padding: 0 22px 22px 22px;
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        border-top: 1px dashed #e6eee2;
+        padding-top: 18px;
+        margin: 0 12px;
+      }
+
+      .a-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background-color: #fdf2ec;
+        color: var(--accent-terracotta);
+        font-family: var(--font-maru);
+        font-size: 1.05rem;
+        font-weight: 700;
+        flex-shrink: 0;
+        border: 1.5px solid #f2d5c7;
+        margin-top: 2px;
+      }
+
+      .a-text {
+        margin: 0;
+        font-size: 0.96rem;
+        color: var(--text-main);
+        line-height: 1.85;
+      }
+
+      .qa-cta-card {
+        background: linear-gradient(135deg, #eef5ea 0%, #fdf6f0 100%);
+        border: 2px solid var(--green-border);
+        border-radius: 20px;
+        padding: 36px 32px;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .qa-cta-title {
+        font-family: var(--font-maru);
+        font-size: 1.35rem;
+        color: var(--green-dark);
+        margin: 12px 0 10px;
+      }
+      .qa-cta-text {
+        font-size: 0.95rem;
+        color: var(--text-main);
+        margin: 0 0 22px;
+      }
+      .qa-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: var(--green-main);
+        color: var(--white);
+        font-family: var(--font-maru);
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 13px 32px;
+        border-radius: 50px;
+        box-shadow: 0 6px 16px rgba(92, 138, 71, 0.25);
+      }
+      .qa-cta-btn:hover {
+        background-color: var(--green-dark);
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .qa-category-box {
+          padding: 24px 18px;
+          margin-bottom: 28px;
+        }
+        .qa-category-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .qa-header-illust {
+          align-self: flex-end;
+          width: 90px;
+          height: 75px;
+          margin-top: -10px;
+        }
+        .qa-category-title {
+          font-size: 1.2rem;
+        }
+        .qa-question {
+          padding: 15px 16px;
+          font-size: 0.98rem;
+          gap: 10px;
+        }
+        .qa-answer {
+          padding: 14px 8px 18px 8px;
+          margin: 0 10px;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stained-glass-bg" aria-hidden="true"></div>
+    <header class="site-header" id="siteHeader">
+      <div class="header-top">
+        <a href="index.html" class="brand-logo">
+          <img
+            src="img/logo_mark.svg"
+            alt="日本神の教会連盟 ロゴ"
+            class="logo-svg"
+          />
+          <div class="brand-text">
+            <span class="brand-ja">日本神の教会連盟</span>
+            <span class="brand-en">CHURCH OF GOD JAPAN</span>
+          </div>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="メニューを開閉">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="global-nav" id="mainNav">
+        <ul>
+          <li><a href="kaminokyoukaitowa.html">神の教会とは</a></li>
+          <li><a href="index.html#churches">所属教会一覧</a></li>
+          <li><a href="photo.html">フォトギャラリー</a></li>
+          <li><a href="kikanshi/kikanshi.html">機関誌</a></li>
+          <li><a href="kakukyoukai/oshirase.html">お知らせ</a></li>
+          <li>
+            <a href="http://www.tamasei.ed.jp/" target="_blank" rel="noopener"
+              >玉川聖学院へ ↗</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ページヒーロー -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-tag">Q &amp; A</span>
+        <h1 class="page-title">よくある質問（Q&amp;A）</h1>
+        <p class="page-subtitle">
+          キリスト教や教会のこと、初めてお越しになる方の疑問に分かりやすくお答えします。
+        </p>
+      </div>
+    </section>
+
+    <!-- メインコンテンツ -->
+    <main class="page-main">
+      <div class="container" style="max-width: 920px">
+        <!-- イントロ＋ポップな挿絵 -->
+        <div
+          class="content-box fade-up"
+          style="text-align: center; padding: 32px 28px; margin-bottom: 32px"
+        >
+          <!-- ポップな鳩とハートの welcome SVG イラスト -->
+          <svg
+            viewBox="0 0 220 110"
+            width="200"
+            height="100"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="ようこそQ&Aへ イラスト"
+            style="margin-bottom: 8px"
+          >
+            <circle cx="110" cy="58" r="46" fill="#eef5ea" />
+            <circle cx="52" cy="42" r="14" fill="#fdf2ec" />
+            <circle cx="168" cy="42" r="14" fill="#e6f3f8" />
+            <!-- 左のQ吹き出し -->
+            <rect
+              x="34"
+              y="26"
+              width="34"
+              height="28"
+              rx="14"
+              fill="#ffffff"
+              stroke="#d47a5a"
+              stroke-width="2.5"
+            />
+            <text
+              x="51"
+              y="45"
+              text-anchor="middle"
+              font-family="'Zen Maru Gothic', sans-serif"
+              font-weight="700"
+              font-size="16"
+              fill="#d47a5a"
+            >
+              Q?
+            </text>
+            <!-- 右のA吹き出し -->
+            <rect
+              x="152"
+              y="26"
+              width="34"
+              height="28"
+              rx="14"
+              fill="#ffffff"
+              stroke="#6ba5c4"
+              stroke-width="2.5"
+            />
+            <text
+              x="169"
+              y="45"
+              text-anchor="middle"
+              font-family="'Zen Maru Gothic', sans-serif"
+              font-weight="700"
+              font-size="16"
+              fill="#6ba5c4"
+            >
+              A!
+            </text>
+            <!-- 中央の平和の鳩 -->
+            <path
+              d="M84 68 C82 52, 96 42, 110 46 C115 36, 128 34, 134 42 C138 47, 135 55, 129 58 C134 65, 130 78, 116 80 L92 80 C86 80, 84 74, 84 68 Z"
+              fill="#ffffff"
+              stroke="#3f6330"
+              stroke-width="2.5"
+              stroke-linejoin="round"
+            />
+            <!-- 翼 -->
+            <path
+              d="M98 62 C104 53, 116 54, 118 63 C112 67, 103 67, 98 62 Z"
+              fill="#eef5ea"
+              stroke="#5c8a47"
+              stroke-width="2"
+            />
+            <!-- くちばしとオリーブの葉 -->
+            <path d="M134 44 L142 46 L134 49 Z" fill="#f2c166" />
+            <path
+              d="M140 47 Q148 53 153 48"
+              fill="none"
+              stroke="#5c8a47"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <ellipse
+              cx="149"
+              cy="46"
+              rx="4"
+              ry="2.2"
+              transform="rotate(-25 149 46)"
+              fill="#86ad63"
+            />
+            <circle cx="126" cy="43" r="2" fill="#3f6330" />
+            <!-- キラキラ -->
+            <path
+              d="M110 16 V24 M106 20 H114"
+              stroke="#f2c166"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <p class="lead-text" style="margin-bottom: 8px">
+            「教会ってどんなところ？」「初めてでも大丈夫？」
+          </p>
+          <p style="margin: 0; font-size: 0.94rem; color: var(--text-sub)">
+            皆さまからよく寄せられるご質問を3つのテーマにまとめました。<span
+              class="sp-br"
+            ></span
+            >気になる質問をクリックすると回答が開きます。
+          </p>
+        </div>
+
+        <!-- カテゴリージャンプボタン -->
+        <nav class="qa-nav-pills fade-up" aria-label="Q&Aカテゴリー移動">
+          <a href="#cat-faith" class="qa-nav-pill">
+            <span>📖</span> ① キリスト教・信仰について
+          </a>
+          <a href="#cat-church" class="qa-nav-pill pill-sky">
+            <span>⛪</span> ② 教会について
+          </a>
+          <a href="#cat-first" class="qa-nav-pill pill-terracotta">
+            <span>🌱</span> ③ 初めて教会に来られる方へ
+          </a>
+        </nav>
+
+        <!-- ① キリスト教・信仰について -->
+        <section class="qa-category-box fade-up" id="cat-faith">
+          <div class="qa-category-header">
+            <div class="qa-category-title-wrap">
+              <span class="qa-num-badge">①</span>
+              <div>
+                <h2 class="qa-category-title">キリスト教・信仰について</h2>
+                <p class="qa-category-sub">
+                  聖書や礼拝、お祈りなど、キリスト教の基本について
+                </p>
+              </div>
+            </div>
+            <!-- 挿絵：聖書と光 -->
+            <div class="qa-header-illust">
+              <svg
+                viewBox="0 0 130 105"
+                width="110"
+                height="90"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="聖書と光のイラスト"
+              >
+                <circle cx="65" cy="55" r="44" fill="#eef5ea" />
+                <!-- 光の線 -->
+                <line
+                  x1="65"
+                  y1="10"
+                  x2="65"
+                  y2="20"
+                  stroke="#f2c166"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="42"
+                  y1="18"
+                  x2="48"
+                  y2="26"
+                  stroke="#f2c166"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="88"
+                  y1="18"
+                  x2="82"
+                  y2="26"
+                  stroke="#f2c166"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <!-- 聖書表紙 -->
+                <rect
+                  x="24"
+                  y="36"
+                  width="82"
+                  height="52"
+                  rx="6"
+                  fill="#5c8a47"
+                />
+                <!-- 左ページ -->
+                <path
+                  d="M65 36 C54 32, 36 33, 28 38 L28 83 C36 78, 54 78, 65 82 Z"
+                  fill="#ffffff"
+                  stroke="#3f6330"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <!-- 右ページ -->
+                <path
+                  d="M65 36 C76 32, 94 33, 102 38 L102 83 C94 78, 76 78, 65 82 Z"
+                  fill="#ffffff"
+                  stroke="#3f6330"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <!-- 左ページの十字架マーク -->
+                <path
+                  d="M46 47 V63 M40 53 H52"
+                  stroke="#d47a5a"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+                <!-- 右ページのテキストライン -->
+                <line
+                  x1="73"
+                  y1="48"
+                  x2="93"
+                  y2="47"
+                  stroke="#86ad63"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="73"
+                  y1="57"
+                  x2="94"
+                  y2="56"
+                  stroke="#b5cfa2"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="73"
+                  y1="66"
+                  x2="90"
+                  y2="65"
+                  stroke="#b5cfa2"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                />
+                <!-- しおり -->
+                <path d="M65 82 L61 95 L65 92 L69 95 Z" fill="#d47a5a" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="qa-list">
+            <details class="qa-item" open>
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">聖書とは何ですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  聖書は、神様の言葉が記された書物です。神様がどのようなお方なのか、私たちをどれほど愛してくださっているのか、そしてイエス・キリストを通して与えられる救いについて教えています。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item" open>
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">礼拝とは何ですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  礼拝とは、神様を賛美し、祈り、聖書の言葉に耳を傾ける大切な時間です。神様に感謝と喜びをささげ、心を神様に向けるひとときです。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">お祈りとは何ですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  お祈りとは、神様に心を向けて語りかけることです。感謝や喜び、悩みや願いなど、どんなことでも神様にお話しすることができます。特別な言葉や作法は必要ありません。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">献金とは何ですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  献金とは、神様への感謝の気持ちを表してささげるものです。教会の活動や福音を伝える働きなどのために用いられます。献金は強制ではありませんので、初めて教会に来られる方はご心配なさらないでください。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text"
+                  >イエス・キリストとはどのようなお方ですか？</span
+                >
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  イエス・キリストは、神の御子であり、私たちを罪から救うためにこの世に来られた救い主です。神様の愛を示し、私たちに希望と新しい命を与えてくださるお方です。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">神様は本当にいるのですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  神様は目で見ることはできませんが、聖書を通してご自身を示し、私たち一人ひとりを愛してくださっています。教会では、神様について一緒に学び、考えていくことができます。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">クリスチャンとは何ですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  クリスチャンとは、イエス・キリストを信じ、神様と共に歩む人のことです。特別な人だけがなれるものではありません。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">洗礼（バプテスマ）とは何ですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  洗礼とは、イエス・キリストを救い主と信じることを表す大切な儀式です。神様を信じ、新しい歩みを始めることを表しています。
+                </p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- ② 教会について -->
+        <section class="qa-category-box fade-up" id="cat-church">
+          <div class="qa-category-header">
+            <div class="qa-category-title-wrap">
+              <span class="qa-num-badge badge-sky">②</span>
+              <div>
+                <h2 class="qa-category-title">教会について</h2>
+                <p class="qa-category-sub">
+                  礼拝の雰囲気や服装、持ち物などについて
+                </p>
+              </div>
+            </div>
+            <!-- 挿絵：かわいい教会と緑の木 -->
+            <div class="qa-header-illust">
+              <svg
+                viewBox="0 0 130 105"
+                width="110"
+                height="90"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="教会のイラスト"
+              >
+                <circle cx="65" cy="55" r="44" fill="#e6f3f8" />
+                <!-- 地面 -->
+                <ellipse cx="65" cy="88" rx="44" ry="7" fill="#c7e0ba" />
+                <!-- 教会本体 -->
+                <rect
+                  x="38"
+                  y="48"
+                  width="54"
+                  height="38"
+                  rx="4"
+                  fill="#ffffff"
+                  stroke="#3f6330"
+                  stroke-width="2.2"
+                />
+                <!-- 屋根 -->
+                <path
+                  d="M32 50 L65 26 L98 50 Z"
+                  fill="#d47a5a"
+                  stroke="#3f6330"
+                  stroke-width="2.2"
+                  stroke-linejoin="round"
+                />
+                <!-- 十字架 -->
+                <path
+                  d="M65 10 V26 M59 16 H71"
+                  stroke="#3f6330"
+                  stroke-width="2.8"
+                  stroke-linecap="round"
+                />
+                <!-- 入口ドア -->
+                <path
+                  d="M57 86 V67 C57 62, 73 62, 73 67 V86 Z"
+                  fill="#f2c166"
+                  stroke="#3f6330"
+                  stroke-width="2"
+                />
+                <!-- 丸窓 -->
+                <circle
+                  cx="65"
+                  cy="44"
+                  r="5.5"
+                  fill="#d8ecf5"
+                  stroke="#3f6330"
+                  stroke-width="1.8"
+                />
+                <!-- 左の木 -->
+                <rect x="23" y="74" width="4" height="12" fill="#8c5a3c" />
+                <circle cx="25" cy="67" r="10" fill="#78a65a" />
+                <!-- 右の木 -->
+                <rect x="103" y="74" width="4" height="12" fill="#8c5a3c" />
+                <circle cx="105" cy="67" r="10" fill="#86ad63" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="qa-list">
+            <details class="qa-item" open>
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">教会とはどのようなところですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  教会は、神様を礼拝し、聖書を学び、互いに支え合いながら歩んでいくところです。初めての方も、どなたでも歓迎いたします。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item" open>
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text"
+                  >教会に行くのは初めてですが、大丈夫ですか？</span
+                >
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  もちろん大丈夫です。初めての方も安心してお越しください。教会のスタッフやメンバーがご案内いたします。聖書や賛美歌なども、必要に応じてご案内します。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text"
+                  >クリスチャンでなくても教会に行けますか？</span
+                >
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  はい、もちろんです。キリスト教に興味がある方、聖書について知りたい方、教会の雰囲気を感じてみたい方など、どなたでもお越しいただけます。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">礼拝には予約が必要ですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  基本的に予約は必要ありません。お気軽にお越しください。団体での参加などの場合は、事前にお問い合わせください。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text"
+                  >礼拝にはどのような服装で行けばよいですか？</span
+                >
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  特別な決まりはありません。普段着など、リラックスできる服装でお越しください。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text"
+                  >礼拝にはどのくらい時間がかかりますか？</span
+                >
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  礼拝は通常、約〇分です。賛美やお祈り、聖書のお話などを行います。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">子どもと一緒に参加できますか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  はい、お子さまと一緒にご参加いただけます。ご家族で安心してお越しください。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">聖書を持っていなくても大丈夫ですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  はい、大丈夫です。聖書をお持ちでない方にもご案内できますので、ご安心ください。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text"
+                  >礼拝の途中から参加しても大丈夫ですか？</span
+                >
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  はい、大丈夫です。途中からでもご参加いただけます。どうぞ遠慮なくお越しください。
+                </p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- ③ 初めて教会に来られる方へ -->
+        <section class="qa-category-box fade-up" id="cat-first">
+          <div class="qa-category-header">
+            <div class="qa-category-title-wrap">
+              <span class="qa-num-badge badge-terracotta">③</span>
+              <div>
+                <h2 class="qa-category-title">初めて教会に来られる方へ</h2>
+                <p class="qa-category-sub">
+                  ご不安な点やご相談について、安心してお越しいただくために
+                </p>
+              </div>
+            </div>
+            <!-- 挿絵：笑顔の歓迎とクローバー・ハート -->
+            <div class="qa-header-illust">
+              <svg
+                viewBox="0 0 130 105"
+                width="110"
+                height="90"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="歓迎と安心のイラスト"
+              >
+                <circle cx="65" cy="55" r="44" fill="#fdf6f0" />
+                <!-- ハート -->
+                <path
+                  d="M65 34 C60 26, 48 26, 48 36 C48 45, 65 55, 65 55 C65 55, 82 45, 82 36 C82 26, 70 26, 65 34 Z"
+                  fill="#d47a5a"
+                />
+                <!-- 寄り添う双葉・芽 -->
+                <path
+                  d="M65 86 V62"
+                  stroke="#5c8a47"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M65 72 C53 72, 46 63, 52 56 C58 50, 65 60, 65 72 Z"
+                  fill="#86ad63"
+                  stroke="#3f6330"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M65 68 C77 68, 84 59, 78 52 C72 46, 65 56, 65 68 Z"
+                  fill="#5c8a47"
+                  stroke="#3f6330"
+                  stroke-width="1.8"
+                />
+                <!-- キラキラ星 -->
+                <circle cx="36" cy="44" r="3" fill="#f2c166" />
+                <circle cx="94" cy="44" r="3" fill="#6ba5c4" />
+                <circle cx="42" cy="74" r="2.5" fill="#d47a5a" />
+                <circle cx="88" cy="74" r="2.5" fill="#f2c166" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="qa-list">
+            <details class="qa-item" open>
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text"
+                  >教会に行ったら、何か勧誘されませんか？</span
+                >
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  無理に入会を勧めたり、信仰を強制したりすることはありません。ご自身のペースで教会のことや聖書について知っていただければと思います。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item" open>
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text"
+                  >キリスト教について何も知らなくても大丈夫ですか？</span
+                >
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  もちろんです。聖書やキリスト教について初めて学ぶ方にも、分かりやすくお伝えしています。分からないことがあれば、いつでもお尋ねください。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text"
+                  >悩みや心配事があっても相談できますか？</span
+                >
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  はい。日々の生活の悩みや心配事など、お話をお聞きします。ご希望があれば、お祈りすることもできます。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">一人で教会に行っても大丈夫ですか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  はい、お一人で来られる方もいらっしゃいます。初めての方も安心してお越しいただけるよう、心を込めてお迎えいたします。
+                </p>
+              </div>
+            </details>
+
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="q-badge">Q</span>
+                <span class="q-text">教会に入会しなければいけませんか？</span>
+                <span class="q-toggle-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="qa-answer">
+                <span class="a-badge">A</span>
+                <p class="a-text">
+                  いいえ、その必要はありません。まずは礼拝に参加したり、教会の雰囲気を感じたりするところから始めていただけます。
+                </p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- お近くの教会案内CTA -->
+        <div class="qa-cta-card fade-up">
+          <span class="section-tag">WELCOME TO CHURCH</span>
+          <h3 class="qa-cta-title">お近くの教会へお気軽にお越しください</h3>
+          <p class="qa-cta-text">
+            北海道から沖縄まで、全国各地の教会が皆さまのお越しを心よりお待ちしております。
+          </p>
+          <a href="index.html#churches" class="qa-cta-btn">
+            <span>⛪ 所属教会一覧を見る</span>
+            <span>›</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-copy">
+        <p>&copy; 日本神の教会連盟 All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- トップへ戻るボタン -->
+    <a
+      href="#"
+      id="scrollTopBtn"
+      class="scroll-top-btn"
+      aria-label="ページの一番上へ戻る"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </a>
+    <script src="js/script.js"></script>
+  </body>
+</html>
