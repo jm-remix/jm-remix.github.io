@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="css/style.css" />
     <style>
       /* =========================================
-         インスタ風フォトギャラリー専用スタイル
+         完全フルワイド・インスタ風フォトギャラリー
          ========================================= */
       .gallery-intro {
         text-align: center;
-        margin-bottom: 32px;
+        padding: 0 20px 24px;
       }
 
       .gallery-intro p {
@@ -30,45 +30,74 @@
         margin: 0;
       }
 
-      /* インスタ風グリッドレイアウト（PC: 4列 / タブレット: 3列 / スマホ: 2列） */
+      /* ページメインの左右余白を完全にゼロにしてフルワイド化 */
+      .page-main {
+        padding: 40px 0 60px !important;
+      }
+
+      .page-main .container {
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .content-box.full-width-box {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+      }
+
+      .content-box.full-width-box .content-header {
+        padding: 0 20px 16px;
+        margin-bottom: 20px;
+        max-width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* 隙間（ギャップ）を完全になくしたフルワイドグリッド
+         (PC: 4列 / タブレット: 3列 / スマホ: 2列) */
       .photo-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 12px; /* 隙間を狭くしてインスタのグリッド感を演出 */
+        gap: 0; /* 隙間ゼロ */
+        width: 100%;
       }
 
       @media (max-width: 960px) {
         .photo-grid {
           grid-template-columns: repeat(3, 1fr);
-          gap: 10px;
+          gap: 0;
         }
       }
 
       @media (max-width: 768px) {
         .photo-grid {
           grid-template-columns: repeat(2, 1fr);
-          gap: 6px; /* スマホではさらにタイトにすっきりと */
+          gap: 0;
         }
       }
 
-      /* 各写真カード（インスタ風の正方形 1:1 に変更） */
+      /* 各写真カード（正方形 1:1、隙間なしのため角丸もなし） */
       .photo-card {
         position: relative;
         background-color: #f4f7f2;
-        border-radius: 8px; /* 角丸を少し小さくしてスタイリッシュに */
+        border-radius: 0;
         overflow: hidden;
-        aspect-ratio: 1 / 1; /* 正方形（インスタのフィード比率） */
+        aspect-ratio: 1 / 1;
         cursor: pointer;
         border: none;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        box-shadow: none;
 
         /* 初期状態（見えていないとき） */
         opacity: 0;
-        transform: translateY(25px) scale(0.95);
+        transform: translateY(20px) scale(0.97);
         transition:
           opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-          transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-          box-shadow 0.3s ease;
+          transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       /* 表示されたときの状態 */
@@ -78,8 +107,6 @@
       }
 
       .photo-card:hover {
-        transform: translateY(-3px) scale(1.01);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         z-index: 2;
       }
 
@@ -92,10 +119,10 @@
       }
 
       .photo-card:hover img {
-        transform: scale(1.06); /* ホバー時のズームを上品に */
+        transform: scale(1.05); /* ホバー時の上品なズーム */
       }
 
-      /* ホバー時のキャプション＆オーバーレイ */
+      /* ホバー時のオーバーレイ（PCのみ） */
       .photo-card-overlay {
         position: absolute;
         inset: 0;
@@ -118,7 +145,6 @@
         opacity: 1;
       }
 
-      /* ＋マーク（PCでのみホバー時に表示、スマホでは非表示） */
       .photo-card-zoom {
         position: absolute;
         top: 10px;
@@ -134,12 +160,6 @@
         justify-content: center;
         font-size: 0.85rem;
         font-weight: 700;
-        transform: scale(0.8);
-        transition: transform 0.2s ease;
-      }
-
-      .photo-card:hover .photo-card-zoom {
-        transform: scale(1);
       }
 
       .photo-card-caption {
@@ -149,21 +169,38 @@
         line-height: 1.35;
         margin: 0;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-        transform: translateY(4px);
-        transition: transform 0.25s ease;
       }
 
-      .photo-card:hover .photo-card-caption {
-        transform: translateY(0);
+      /* =========================================
+         要素を中央寄せにするスタイル
+         ========================================= */
+      /* 見出しの中央寄せ */
+      .content-box.full-width-box .content-header h2 {
+        text-align: center;
       }
 
-      /* スマホ表示のとき（＋マークを完全非表示、キャプションも非表示で完全なインスタ風タイルに） */
+      /* アイコン付き見出しの親要素ごと中央に配置したい場合 */
+      .content-box.full-width-box .content-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      /* フッターのブランド情報（ロゴ＋教会名）の中央寄せ */
+      .footer-inner {
+        justify-content: center !important;
+        text-align: center;
+      }
+
+      .footer-brand {
+        justify-content: center;
+      }
+
+      /* スマホ表示のときは余計なオーバーレイを非表示にしてピュアな写真タイルに */
       @media (max-width: 768px) {
         .photo-card-overlay {
-          display: none; /* スマホでは文字やオーバーレイを消して写真だけにするとよりインスタのグリッド風になります */
-        }
-        .photo-card-zoom {
-          display: none; /* 「＋」アイコンを完全に消去 */
+          display: none;
         }
       }
 
@@ -373,29 +410,13 @@
         <p class="page-subtitle">
           全国の諸教会の姿や集会、交わりのひとときを写真でご紹介します。
         </p>
-        <div style="margin-top: 20px">
-          <a
-            href="index.html"
-            style="
-              display: inline-block;
-              background-color: rgba(255, 255, 255, 0.2);
-              color: #fff;
-              padding: 6px 16px;
-              border-radius: 50px;
-              font-size: 0.85rem;
-              font-weight: 500;
-              border: 1px solid rgba(255, 255, 255, 0.4);
-            "
-          >
-            ← トップページへ戻る
-          </a>
-        </div>
       </div>
     </section>
 
     <main class="page-main">
       <div class="container">
-        <article class="content-box">
+        <!-- フルワイド用のクラスを適用 -->
+        <article class="content-box full-width-box">
           <div class="content-header">
             <span class="content-number">📷</span>
             <h2>連盟・諸教会のアルバム</h2>
@@ -405,7 +426,7 @@
             <p>写真をタップすると、大きなサイズでご覧いただけます。</p>
           </div>
 
-          <!-- 30枚のギャラリーが自動展開されます -->
+          <!-- 30枚のギャラリーが隙間なくフルワイドで自動展開されます -->
           <div class="photo-grid" id="photoGrid"></div>
         </article>
       </div>
@@ -521,6 +542,8 @@
             caption: "写真 27：チャペルコンサート",
           },
           { src: "img/photo/photo28.jpg", caption: "写真 28：祈祷会の様子" },
+          { src: "img/photo/photo29.jpg", caption: "写真 29：愛餐会の食卓" },
+          { src: "img/photo/photo30.jpg", caption: "写真 30：共に歩む交わり" },
         ];
 
         const grid = document.getElementById("photoGrid");
