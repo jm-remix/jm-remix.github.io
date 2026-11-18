@@ -736,32 +736,55 @@ body {
 }
 
 /* =========================================
-   イラストナビ スライダー（5ボタン対応）
+   イラストナビ スライダー（PC:中央3枚+見切れ / スマホ:中央2枚+見切れ）
    ========================================= */
 .illust-slider-wrapper {
     position: relative;
-    padding: 0 36px;
+    padding: 0; /* 画面端・コンテナ端まで見切れさせる */
 }
 
 .illust-slider-viewport {
     overflow: hidden;
-    padding: 12px 4px 20px; /* hover時の浮き上がり・影が見切れないよう余白確保 */
-    margin: -12px -4px -20px;
+    padding: 12px 0 20px;
+    margin: -12px 0 -20px;
 }
 
 .illust-slider-track {
     display: flex;
-    gap: 24px;
-    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    gap: 20px;
     will-change: transform;
 }
 
-/* PC: 3枚表示 */
+/* PC: 中央3枚 ＋ 左右に見切れ（カード1枚あたり約29%幅） */
 .illust-slider-track .illust-card {
-    flex: 0 0 calc((100% - 48px) / 3);
-    min-width: calc((100% - 48px) / 3);
+    flex: 0 0 28.5%;
+    min-width: 28.5%;
     margin: 0;
     max-width: none;
+}
+
+/* スマホ（768px以下）: 中央2枚 ＋ 左右に見切れ（カード1枚あたり約42%幅） */
+@media (max-width: 768px) {
+    .illust-slider-track {
+        gap: 14px;
+    }
+    .illust-slider-track .illust-card {
+        flex: 0 0 42%;
+        min-width: 42%;
+        padding: 20px 14px 24px; /* 2枚並びでも文字が読みやすいよう余白調整 */
+    }
+    .illust-slider-track .illust-img-wrap {
+        width: 120px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+    .illust-slider-track .illust-title {
+        font-size: 1rem;
+    }
+    .illust-slider-track .illust-desc {
+        font-size: 0.78rem;
+        line-height: 1.5;
+    }
 }
 
 /* 左右の矢印ボタン */
@@ -774,7 +797,7 @@ body {
     height: 40px;
     border-radius: 50%;
     border: 1.5px solid var(--green-border);
-    background-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.95);
     color: var(--green-dark);
     font-size: 1.5rem;
     line-height: 1;
@@ -782,7 +805,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(63, 99, 48, 0.12);
+    box-shadow: 0 4px 12px rgba(63, 99, 48, 0.16);
     transition: all 0.25s ease;
 }
 
@@ -794,11 +817,19 @@ body {
 }
 
 .illust-slider-arrow.prev {
-    left: -6px;
+    left: 6px;
 }
 
 .illust-slider-arrow.next {
-    right: -6px;
+    right: 6px;
+}
+
+@media (max-width: 768px) {
+    .illust-slider-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 1.3rem;
+    }
 }
 
 /* 下部ドットインジケーター */
@@ -824,28 +855,4 @@ body {
     width: 24px;
     border-radius: 999px;
     background-color: var(--green-main);
-}
-
-/* タブレット: 2枚表示 */
-@media (max-width: 900px) {
-    .illust-slider-track .illust-card {
-        flex: 0 0 calc((100% - 24px) / 2);
-        min-width: calc((100% - 24px) / 2);
-    }
-}
-
-/* スマホ: 1枚表示 */
-@media (max-width: 640px) {
-    .illust-slider-wrapper {
-        padding: 0 28px;
-    }
-    .illust-slider-track .illust-card {
-        flex: 0 0 100%;
-        min-width: 100%;
-    }
-    .illust-slider-arrow {
-        width: 34px;
-        height: 34px;
-        font-size: 1.3rem;
-    }
 }
