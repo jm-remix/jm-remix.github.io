@@ -333,3 +333,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* --- 既存の処理（ハンバーガーメニュー等） --- */
+
+  // 💡 追加：トップへ戻るボタンのスクロール制御
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  if (scrollTopBtn) {
+    // 300px以上スクロールしたらボタンを表示
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('active');
+      } else {
+        scrollTopBtn.classList.remove('active');
+      }
+    });
+
+    // ボタンタップで最上部へスムーズにスクロール
+    scrollTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+});
