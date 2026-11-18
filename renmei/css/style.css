@@ -334,7 +334,8 @@ ul { list-style: none; margin: 0; padding: 0; }
     .area-group { padding: 22px 18px; }
     .content-box { padding: 28px 20px; }
     .features-grid { grid-template-columns: 1fr; }
-    .page-title { font-size: 1.7rem; }
+	.page-title { font-size: 1.7rem; }
+	
 }
 
 /* =========================================
