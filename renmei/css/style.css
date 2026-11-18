@@ -83,25 +83,24 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* ヒーロービジュアル（トップ用） */
 .hero-visual {
     position: relative; 
-    min-height: auto; /* 高さはコンテンツやパディングに合わせる */
+    min-height: 650px; /* 縦幅（お好みで 550px〜650px に調整してください） */
     display: flex; 
-    flex-direction: column; /* 中身を縦方向並びにする */
+    flex-direction: column; 
     align-items: center; 
     justify-content: center;
     text-align: center; 
     color: var(--white); 
     overflow: hidden;
     background: linear-gradient(125deg, #6b9651 0%, #86ad63 50%, #a5c27b 100%);
-    padding: 60px 20px 40px; /* 上下の余白を調整 */
+    padding: 90px 20px 80px; /* 上下の余白を約1.3〜1.5倍に拡張 */
 }
 
 .hero-inner { 
     position: relative; 
     z-index: 2; 
     max-width: 760px; 
-    margin-bottom: 50px; /* ヒーローのキャッチコピーとウェルカムボックスの間隔 */
+    margin-bottom: 40px; /* ロゴとウェルカムメッセージの間隔 */
 }
-
 /* ウェルカムセクション */
 .welcome-section {
     position: relative; 
@@ -169,7 +168,6 @@ ul { list-style: none; margin: 0; padding: 0; }
 .page-subtitle { font-size: 0.95rem; margin: 0; opacity: 0.92; }
 
 /* ウェルカムセクション */
-.welcome-section { margin-top: -56px; position: relative; z-index: 5; padding-bottom: 32px; }
 .welcome-lead {
     font-family: var(--font-maru); font-size: 1.15rem; font-weight: 700;
     color: var(--green-dark); margin: 0 0 14px;
@@ -325,7 +323,10 @@ ul { list-style: none; margin: 0; padding: 0; }
     .global-nav.active { display: block; }
     .global-nav ul { flex-direction: column; }
     .global-nav li a { padding: 14px 24px; border-bottom: 1px solid #f0f4ee; }
-    .hero-visual { min-height: 360px; padding: 48px 20px 84px; }
+    .hero-visual { 
+        min-height: 480px; /* 元の 360px の約1.3倍 */
+        padding: 70px 20px 60px; 
+    }
     .hero-badge { flex-direction: column; text-align: center; gap: 10px; }
     .hero-title { font-size: 1.75rem; }
     .hero-catch { font-size: 1rem; }
