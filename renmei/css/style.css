@@ -38,7 +38,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .header-top {
     max-width: 1120px; margin: 0 auto;
-    padding: 14px 24px;
+    padding: 8px 16px;
     display: flex; align-items: center; justify-content: space-between;
 }
 .brand-logo { display: flex; align-items: center; gap: 12px; }
@@ -665,5 +665,27 @@ body {
     }
     100% {
         transform: rotate(360deg) scale(1.1);
+    }
+}
+
+@media (max-width: 768px) {
+    /* ヘッダー上部のエリア（ロゴとハンバーガーボタンがある部分）の上下パディングを狭める */
+    .header-top {
+        padding: 6px 16px; 
+    }
+
+    /* ロゴのアイコンサイズやテキストのバランスを調整 */
+    .logo-svg {
+        width: 30px; 
+        height: 30px;
+    }
+
+    .brand-ja {
+        font-size: 0.9rem; /* ロゴの日本語フォントを少しコンパクトに */
+    }
+
+    /* ハンバーガーボタン自体の余白を調整 */
+    .menu-toggle {
+        padding: 2px;
     }
 }
