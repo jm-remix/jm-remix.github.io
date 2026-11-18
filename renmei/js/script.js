@@ -362,3 +362,168 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/* =========================================
+   5. イラストナビ 自動スライダー（ずっと左へ流れる無限ループ）
+   ========================================= */
+document.addEventListener('DOMContentLoaded', function () {
+    const wrapper = document.getElementById('illustSliderWrapper');
+    const track = document.getElementById('illustSliderTrack');
+    const prevBtn = document.getElementById('illustPrevBtn');
+    const nextBtn = document.getElementById('illustNextBtn');
+    const dotsContainer = document.getElementById('illustSliderDots');
+
+    if (!wrapper || !track) return;
+
+    let cards = Array.from(track.querySelectorAll('.illust-card'));
+    const totalCards = cards.length;
+    let autoTimer = null;
+    const intervalMs = 2000; // 4秒ごとに自動スライド
+    let isAnimating = false;
+    let currentDotIndex = 0;
+
+    // ドットの生成
+    function buildDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalCards; i++) {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'illust-slider-dot' + (i === currentDotIndex ? ' active' : '');
+            dot.setAttribute('aria-label', `${i + 1}番目を表示`);
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    // ドットの表示更新
+    function updateDots(newIndex) {
+        currentDotIndex = (newIndex + totalCards) % totalCards;
+        if (dotsContainer) {
+            const dots = dotsContainer.querySelectorAll('.illust-slider-dot');
+            dots.forEach((d, i) => {
+                d.classList.toggle('active', i === currentDotIndex);
+            });
+        }
+    }
+
+    // 左へ1枚分スライドする（常に左方向へ循環）
+    function slideLeft() {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const gap = parseFloat(getComputedStyle(track).gap) || 24;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const moveAmount = cardWidth + gap;
+
+        // 左へスライドするアニメーション
+        track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+        track.style.transform = `translateX(-${moveAmount}px)`;
+
+        setTimeout(() => {
+            // アニメーション完了後、トランジションを消して位置をリセット
+            track.style.transition = 'none';
+            track.style.transform = 'translateX(0)';
+
+            // 先頭にあったカードをDOMの末尾に移動させることで無限ループを実現
+            const firstCard = track.firstElementChild;
+            track.appendChild(firstCard);
+            cards = Array.from(track.querySelectorAll('.illust-card'));
+
+            updateDots(currentDotIndex + 1);
+            isAnimating = false;
+        }, 600); // CSSのtransition時間と一致させる
+    }
+
+    // 右へ1枚分スライドする（「前へ」ボタン用）
+    function slideRight() {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const gap = parseFloat(getComputedStyle(track).gap) || 24;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const moveAmount = cardWidth + gap;
+
+        // 末尾のカードをあらかじめ先頭に移動しておく
+        const lastCard = track.lastElementChild;
+        track.insertBefore(lastCard, track.firstElementChild);
+        cards = Array.from(track.querySelectorAll('.illust-card'));
+
+        // 一瞬で左にオフセットした状態を作り、右へスライドインさせる
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${moveAmount}px)`;
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+                track.style.transform = 'translateX(0)';
+            });
+        });
+
+        setTimeout(() => {
+            updateDots(currentDotIndex - 1);
+            isAnimating = false;
+        }, 600);
+    }
+
+    // 自動再生の制御
+    function startAutoPlay() {
+        stopAutoPlay();
+        autoTimer = setInterval(() => {
+            slideLeft();
+        }, intervalMs);
+    }
+
+    function stopAutoPlay() {
+        if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+        }
+    }
+
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    // ボタン操作
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            slideLeft();
+            resetAutoPlay();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            slideRight();
+            resetAutoPlay();
+        });
+    }
+
+    // マウスホバー中は自動スライドを一時停止
+    wrapper.addEventListener('mouseenter', stopAutoPlay);
+    wrapper.addEventListener('mouseleave', startAutoPlay);
+
+    // スマホのスワイプ操作対応
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        stopAutoPlay();
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+        const diffX = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diffX) > 40) {
+            if (diffX > 0) {
+                slideLeft();
+            } else {
+                slideRight();
+            }
+        }
+        startAutoPlay();
+    });
+
+    // 初期化
+    buildDots();
+    startAutoPlay();
+});
