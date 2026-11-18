@@ -734,3 +734,118 @@ body {
   visibility: visible;
   transform: translateY(0);
 }
+
+/* =========================================
+   イラストナビ スライダー（5ボタン対応）
+   ========================================= */
+.illust-slider-wrapper {
+    position: relative;
+    padding: 0 36px;
+}
+
+.illust-slider-viewport {
+    overflow: hidden;
+    padding: 12px 4px 20px; /* hover時の浮き上がり・影が見切れないよう余白確保 */
+    margin: -12px -4px -20px;
+}
+
+.illust-slider-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+}
+
+/* PC: 3枚表示 */
+.illust-slider-track .illust-card {
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-width: calc((100% - 48px) / 3);
+    margin: 0;
+    max-width: none;
+}
+
+/* 左右の矢印ボタン */
+.illust-slider-arrow {
+    position: absolute;
+    top: 44%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid var(--green-border);
+    background-color: var(--white);
+    color: var(--green-dark);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(63, 99, 48, 0.12);
+    transition: all 0.25s ease;
+}
+
+.illust-slider-arrow:hover {
+    background-color: var(--green-main);
+    border-color: var(--green-main);
+    color: var(--white);
+    transform: translateY(-50%) scale(1.06);
+}
+
+.illust-slider-arrow.prev {
+    left: -6px;
+}
+
+.illust-slider-arrow.next {
+    right: -6px;
+}
+
+/* 下部ドットインジケーター */
+.illust-slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.illust-slider-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: none;
+    background-color: #d5e4ce;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.illust-slider-dot.active {
+    width: 24px;
+    border-radius: 999px;
+    background-color: var(--green-main);
+}
+
+/* タブレット: 2枚表示 */
+@media (max-width: 900px) {
+    .illust-slider-track .illust-card {
+        flex: 0 0 calc((100% - 24px) / 2);
+        min-width: calc((100% - 24px) / 2);
+    }
+}
+
+/* スマホ: 1枚表示 */
+@media (max-width: 640px) {
+    .illust-slider-wrapper {
+        padding: 0 28px;
+    }
+    .illust-slider-track .illust-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+    .illust-slider-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 1.3rem;
+    }
+}
