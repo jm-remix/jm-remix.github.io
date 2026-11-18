@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="フォトギャラリー - 日本神の教会連盟の歩みや全国の諸教会、交わりの様子を写真でご紹介します。"
+    />
+    <title>フォトギャラリー | 日本神の教会連盟</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* =========================================
+         フォトギャラリー専用スタイル
+         ========================================= */
+      .gallery-intro {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .gallery-intro p {
+        font-size: 0.95rem;
+        color: var(--text-sub);
+        margin: 0;
+      }
+
+      /* グリッドレイアウト（PC: 4列 / タブレット: 3列 / スマホ: 2列） */
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+
+      @media (max-width: 960px) {
+        .photo-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .photo-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+      }
+
+      /* 各写真カード（パラパラと飛び出す動き） */
+      .photo-card {
+        position: relative;
+        background-color: #f4f7f2;
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        cursor: pointer;
+        border: 1px solid var(--green-border);
+        box-shadow: 0 4px 12px rgba(63, 99, 48, 0.06);
+
+        /* 初期状態（見えていないとき） */
+        opacity: 0;
+        transform: translateY(35px) scale(0.92);
+        transition:
+          opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.3s ease;
+      }
+
+      /* 表示されたときの状態 */
+      .photo-card.is-shown {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .photo-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 12px 24px rgba(63, 99, 48, 0.16);
+        border-color: var(--green-main);
+        z-index: 2;
+      }
+
+      .photo-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .photo-card:hover img {
+        transform: scale(1.1);
+      }
+
+      /* ホバー時のキャプション＆拡大アイコンオーバーレイ */
+      .photo-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(35, 58, 25, 0.78) 0%,
+          rgba(35, 58, 25, 0.15) 55%,
+          transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 14px;
+        color: #ffffff;
+      }
+
+      .photo-card:hover .photo-card-overlay {
+        opacity: 1;
+      }
+
+      .photo-card-zoom {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: var(--green-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 700;
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+      }
+
+      .photo-card:hover .photo-card-zoom {
+        transform: scale(1);
+      }
+
+      .photo-card-caption {
+        font-family: var(--font-maru);
+        font-size: 0.85rem;
+        font-weight: 700;
+        line-height: 1.4;
+        margin: 0;
+        transform: translateY(6px);
+        transition: transform 0.3s ease;
+      }
+
+      .photo-card:hover .photo-card-caption {
+        transform: translateY(0);
+      }
+
+      /* スマホ時はタップしやすいよう右下小さく虫眼鏡アイコンを常時表示 */
+      @media (max-width: 768px) {
+        .photo-card-overlay {
+          opacity: 1;
+          background: linear-gradient(
+            to top,
+            rgba(35, 58, 25, 0.65) 0%,
+            transparent 45%
+          );
+          padding: 8px 10px;
+        }
+        .photo-card-zoom {
+          width: 26px;
+          height: 26px;
+          font-size: 0.75rem;
+          top: 6px;
+          right: 6px;
+          transform: scale(1);
+        }
+        .photo-card-caption {
+          font-size: 0.75rem;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================================
+         拡大ポップアップ（ライトボックス）
+         ========================================= */
+      .lightbox-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 3000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+
+      .lightbox-modal.is-open {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .lightbox-backdrop {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(20, 32, 16, 0.85);
+        backdrop-filter: blur(4px);
+      }
+
+      .lightbox-content {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: scale(0.92);
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .lightbox-modal.is-open .lightbox-content {
+        transform: scale(1);
+      }
+
+      .lightbox-img-box {
+        position: relative;
+        background-color: #ffffff;
+        padding: 8px;
+        border-radius: 14px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+        max-width: 100%;
+      }
+
+      .lightbox-img-box img {
+        display: block;
+        max-width: 100%;
+        max-height: 74vh;
+        width: auto;
+        height: auto;
+        border-radius: 8px;
+        object-fit: contain;
+      }
+
+      .lightbox-caption-bar {
+        margin-top: 14px;
+        text-align: center;
+        color: #ffffff;
+        font-family: var(--font-maru);
+      }
+
+      .lightbox-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin: 0 0 4px;
+      }
+
+      .lightbox-counter {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        margin: 0;
+      }
+
+      /* 閉じるボタン */
+      .lightbox-close {
+        position: fixed;
+        top: 18px;
+        right: 20px;
+        z-index: 2;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background-color: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        font-size: 1.6rem;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background-color 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .lightbox-close:hover {
+        background-color: var(--green-main);
+        transform: scale(1.08);
+      }
+
+      /* 前へ・次へボタン */
+      .lightbox-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background-color: rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background-color 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .lightbox-nav:hover {
+        background-color: var(--green-main);
+        transform: translateY(-50%) scale(1.08);
+      }
+
+      .lightbox-prev {
+        left: 16px;
+      }
+
+      .lightbox-next {
+        right: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .lightbox-nav {
+          width: 38px;
+          height: 38px;
+          font-size: 1.2rem;
+        }
+        .lightbox-prev {
+          left: 8px;
+        }
+        .lightbox-next {
+          right: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stained-glass-bg" aria-hidden="true"></div>
+    <header class="site-header" id="siteHeader">
+      <div class="header-top">
+        <a href="index.html" class="brand-logo">
+          <img
+            src="img/logo_mark.svg"
+            alt="日本神の教会連盟 ロゴ"
+            class="logo-svg"
+          />
+          <div class="brand-text">
+            <span class="brand-ja">日本神の教会連盟</span>
+            <span class="brand-en">CHURCH OF GOD IN JAPAN</span>
+          </div>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="メニューを開閉">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="global-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="kaminokyoukaitowa.html">神の教会とは</a></li>
+          <li><a href="index.html#churches">所属教会一覧</a></li>
+          <li><a href="kikanshi/kikanshi.html">機関誌</a></li>
+          <li><a href="kakukyoukai/oshirase.html">お知らせ</a></li>
+          <li><a href="100nenshi.html">100年史</a></li>
+          <li>
+            <a href="http://www.tamasei.ed.jp/" target="_blank" rel="noopener"
+              >玉川聖学院へ ↗</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-tag">PHOTO GALLERY</span>
+        <h1 class="page-title">フォトギャラリー</h1>
+        <p class="page-subtitle">
+          全国の諸教会の姿や集会、交わりのひとときを写真でご紹介します。
+        </p>
+      </div>
+    </section>
+
+    <main class="page-main">
+      <div class="container">
+        <article class="content-box">
+          <div class="content-header">
+            <span class="content-number">📷</span>
+            <h2>連盟・諸教会のアルバム</h2>
+          </div>
+
+          <div class="gallery-intro">
+            <p>
+              写真をクリック（タップ）すると、大きなサイズでご覧いただけます。
+            </p>
+          </div>
+
+          <!-- 30枚のギャラリーがJavaScriptで自動展開されます -->
+          <div class="photo-grid" id="photoGrid"></div>
+        </article>
+      </div>
+    </main>
+
+    <!-- 拡大ポップアップ（ライトボックス） -->
+    <div
+      class="lightbox-modal"
+      id="lightboxModal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+      <button
+        type="button"
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="閉じる"
+      >
+        &times;
+      </button>
+      <button
+        type="button"
+        class="lightbox-nav lightbox-prev"
+        id="lightboxPrev"
+        aria-label="前の写真"
+      >
+        &#10094;
+      </button>
+      <button
+        type="button"
+        class="lightbox-nav lightbox-next"
+        id="lightboxNext"
+        aria-label="次の写真"
+      >
+        &#10095;
+      </button>
+
+      <div class="lightbox-content">
+        <div class="lightbox-img-box">
+          <img src="" alt="" id="lightboxImg" />
+        </div>
+        <div class="lightbox-caption-bar">
+          <p class="lightbox-title" id="lightboxTitle"></p>
+          <p class="lightbox-counter" id="lightboxCounter"></p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="img/logo_mark.svg" alt="" class="footer-logo" />
+          <div>
+            <p class="footer-name">日本神の教会連盟</p>
+            <p class="footer-en">CHURCH OF GOD IN JAPAN</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 日本神の教会連盟 All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // ▼ ここで30枚分の画像パスとキャプションを設定します ▼
+        // 実際のファイル名（例: img/photo/01.jpg など）に合わせて変更してください
+        const photos = [
+          { src: "img/photo/photo01.jpg", caption: "写真 01：連盟総会の様子" },
+          { src: "img/photo/photo02.jpg", caption: "写真 02：礼拝堂の風景" },
+          { src: "img/photo/photo03.jpg", caption: "写真 03：賛美のひととき" },
+          { src: "img/photo/photo04.jpg", caption: "写真 04：教会学校の活動" },
+          { src: "img/photo/photo05.jpg", caption: "写真 05：春の交わり会" },
+          { src: "img/photo/photo06.jpg", caption: "写真 06：聖書学び会" },
+          { src: "img/photo/photo07.jpg", caption: "写真 07：青年キャンプ" },
+          { src: "img/photo/photo08.jpg", caption: "写真 08：地区連合礼拝" },
+          { src: "img/photo/photo09.jpg", caption: "写真 09：クリスマス礼拝" },
+          { src: "img/photo/photo10.jpg", caption: "写真 10：イースター祝会" },
+          { src: "img/photo/photo11.jpg", caption: "写真 11：教会の外観" },
+          {
+            src: "img/photo/photo12.jpg",
+            caption: "写真 12：ステンドグラスの光",
+          },
+          {
+            src: "img/photo/photo13.jpg",
+            caption: "写真 13：ゴスペルクワイア",
+          },
+          {
+            src: "img/photo/photo14.jpg",
+            caption: "写真 14：幼児教育施設の園庭",
+          },
+          { src: "img/photo/photo15.jpg", caption: "写真 15：地域奉仕活動" },
+          { src: "img/photo/photo16.jpg", caption: "写真 16：婦人会の集い" },
+          { src: "img/photo/photo17.jpg", caption: "写真 17：壮年会の交わり" },
+          {
+            src: "img/photo/photo18.jpg",
+            caption: "写真 18：修養会の記念撮影",
+          },
+          { src: "img/photo/photo19.jpg", caption: "写真 19：教職者研修会" },
+          {
+            src: "img/photo/photo20.jpg",
+            caption: "写真 20：北海道地区の教会",
+          },
+          { src: "img/photo/photo21.jpg", caption: "写真 21：関東地区の教会" },
+          { src: "img/photo/photo22.jpg", caption: "写真 22：関西地区の教会" },
+          { src: "img/photo/photo23.jpg", caption: "写真 23：九州地区の教会" },
+          { src: "img/photo/photo24.jpg", caption: "写真 24：沖縄地区の教会" },
+          { src: "img/photo/photo25.jpg", caption: "写真 25：宣教の歴史資料" },
+          { src: "img/photo/photo26.jpg", caption: "写真 26：100周年記念集会" },
+          {
+            src: "img/photo/photo27.jpg",
+            caption: "写真 27：チャペルコンサート",
+          },
+          { src: "img/photo/photo28.jpg", caption: "写真 28：祈祷会の様子" },
+          { src: "img/photo/photo29.jpg", caption: "写真 29：愛餐会の食卓" },
+          { src: "img/photo/photo30.jpg", caption: "写真 30：共に歩む交わり" },
+        ];
+
+        const grid = document.getElementById("photoGrid");
+        const modal = document.getElementById("lightboxModal");
+        const modalImg = document.getElementById("lightboxImg");
+        const modalTitle = document.getElementById("lightboxTitle");
+        const modalCounter = document.getElementById("lightboxCounter");
+        const closeBtn = document.getElementById("lightboxClose");
+        const prevBtn = document.getElementById("lightboxPrev");
+        const nextBtn = document.getElementById("lightboxNext");
+        const backdrop = document.getElementById("lightboxBackdrop");
+
+        let currentIndex = 0;
+
+        // 1. ギャラリーカードを生成してDOMに追加
+        photos.forEach((item, index) => {
+          const card = document.createElement("div");
+          card.className = "photo-card";
+          card.setAttribute("role", "button");
+          card.setAttribute("tabindex", "0");
+          card.setAttribute("aria-label", `${item.caption} を拡大表示`);
+
+          card.innerHTML = `
+            <img src="${item.src}" alt="${item.caption}" loading="lazy" />
+            <div class="photo-card-overlay">
+              <span class="photo-card-zoom">＋</span>
+              <p class="photo-card-caption">${item.caption}</p>
+            </div>
+          `;
+
+          // クリック＆Enterキーで拡大ポップアップを開く
+          card.addEventListener("click", () => openLightbox(index));
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openLightbox(index);
+            }
+          });
+
+          grid.appendChild(card);
+        });
+
+        // 2. スクロールに応じて順番にふわっと出現させる（スタガーアニメーション）
+        const cards = document.querySelectorAll(".photo-card");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            let batchDelay = 0;
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const target = entry.target;
+                setTimeout(() => {
+                  target.classList.add("is-shown");
+                }, batchDelay);
+                batchDelay += 60; // 1枚ずつ60msずらしてリズミカルに表示
+                observer.unobserve(target);
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        cards.forEach((card) => observer.observe(card));
+
+        // 3. ポップアップ（ライトボックス）制御
+        function updateLightbox() {
+          const item = photos[currentIndex];
+          modalImg.src = item.src;
+          modalImg.alt = item.caption;
+          modalTitle.textContent = item.caption;
+          modalCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+        }
+
+        function openLightbox(index) {
+          currentIndex = index;
+          updateLightbox();
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden"; // 背景スクロール防止
+        }
+
+        function closeLightbox() {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+
+        function showPrev() {
+          currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+          updateLightbox();
+        }
+
+        function showNext() {
+          currentIndex = (currentIndex + 1) % photos.length;
+          updateLightbox();
+        }
+
+        closeBtn.addEventListener("click", closeLightbox);
+        backdrop.addEventListener("click", closeLightbox);
+        prevBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showPrev();
+        });
+        nextBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showNext();
+        });
+
+        // キーボード操作（Escで閉じる、左右矢印で画像送り）
+        document.addEventListener("keydown", (e) => {
+          if (!modal.classList.contains("is-open")) return;
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowLeft") showPrev();
+          if (e.key === "ArrowRight") showNext();
+        });
+      });
+    </script>
+  </body>
+</html>
