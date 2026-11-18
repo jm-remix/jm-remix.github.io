@@ -364,23 +364,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================
-   5. イラストナビ 自動スライダー（ずっと左へ流れる無限ループ）
+   5. イラストナビ 自動スライダー（PC:中央3枚+見切れ / スマホ:中央2枚+見切れ）
    ========================================= */
 document.addEventListener('DOMContentLoaded', function () {
     const wrapper = document.getElementById('illustSliderWrapper');
+    const viewport = document.getElementById('illustSliderViewport');
     const track = document.getElementById('illustSliderTrack');
     const prevBtn = document.getElementById('illustPrevBtn');
     const nextBtn = document.getElementById('illustNextBtn');
     const dotsContainer = document.getElementById('illustSliderDots');
 
-    if (!wrapper || !track) return;
+    if (!wrapper || !viewport || !track) return;
 
     let cards = Array.from(track.querySelectorAll('.illust-card'));
     const totalCards = cards.length;
     let autoTimer = null;
-    const intervalMs = 2000; // 4秒ごとに自動スライド
+    const intervalMs = 4000; // 4秒ごとに自動スライド
     let isAnimating = false;
     let currentDotIndex = 0;
+
+    // 左端にも見切れを作るため、最後のカードを先頭に1枚移動しておく
+    track.insertBefore(track.lastElementChild, track.firstElementChild);
+    cards = Array.from(track.querySelectorAll('.illust-card'));
 
     // ドットの生成
     function buildDots() {
@@ -395,7 +400,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // ドットの表示更新
     function updateDots(newIndex) {
         currentDotIndex = (newIndex + totalCards) % totalCards;
         if (dotsContainer) {
@@ -406,71 +410,83 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // 左へ1枚分スライドする（常に左方向へ循環）
+    // 中央のカード群（PCなら3枚、スマホなら2枚）が真ん中に来る基準のX座標を計算
+    function getBaseOffset() {
+        const viewportWidth = viewport.getBoundingClientRect().width;
+        const gap = parseFloat(getComputedStyle(track).gap) || 20;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const centerCount = window.innerWidth <= 768 ? 2 : 3;
+
+        // 中央に表示したい枚数分の合計幅
+        const centerGroupWidth = cardWidth * centerCount + gap * (centerCount - 1);
+        // 左右それぞれの見切れ余白
+        const sidePeek = (viewportWidth - centerGroupWidth) / 2;
+
+        // 先頭(index 0)に見切れ用カードを1枚置いているため、1枚分右へずらした位置から見切れ余白を引く
+        return (cardWidth + gap) - sidePeek;
+    }
+
+    // 基準位置に即座にセット
+    function setInitialPosition() {
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${getBaseOffset()}px)`;
+    }
+
+    // 左へ1枚分スライド（ずっと左へ無限ループ）
     function slideLeft() {
         if (isAnimating) return;
         isAnimating = true;
 
-        const gap = parseFloat(getComputedStyle(track).gap) || 24;
+        const gap = parseFloat(getComputedStyle(track).gap) || 20;
         const cardWidth = cards[0].getBoundingClientRect().width;
-        const moveAmount = cardWidth + gap;
+        const step = cardWidth + gap;
+        const baseOffset = getBaseOffset();
 
-        // 左へスライドするアニメーション
         track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
-        track.style.transform = `translateX(-${moveAmount}px)`;
+        track.style.transform = `translateX(-${baseOffset + step}px)`;
 
         setTimeout(() => {
-            // アニメーション完了後、トランジションを消して位置をリセット
             track.style.transition = 'none';
-            track.style.transform = 'translateX(0)';
-
-            // 先頭にあったカードをDOMの末尾に移動させることで無限ループを実現
-            const firstCard = track.firstElementChild;
-            track.appendChild(firstCard);
+            // 先頭カードを末尾へ移動
+            track.appendChild(track.firstElementChild);
             cards = Array.from(track.querySelectorAll('.illust-card'));
+            // 基準位置に戻す
+            track.style.transform = `translateX(-${getBaseOffset()}px)`;
 
             updateDots(currentDotIndex + 1);
             isAnimating = false;
-        }, 600); // CSSのtransition時間と一致させる
+        }, 600);
     }
 
-    // 右へ1枚分スライドする（「前へ」ボタン用）
+    // 右へ1枚分スライド（「前へ」ボタン・右スワイプ用）
     function slideRight() {
         if (isAnimating) return;
         isAnimating = true;
 
-        const gap = parseFloat(getComputedStyle(track).gap) || 24;
+        const gap = parseFloat(getComputedStyle(track).gap) || 20;
         const cardWidth = cards[0].getBoundingClientRect().width;
-        const moveAmount = cardWidth + gap;
+        const step = cardWidth + gap;
+        const baseOffset = getBaseOffset();
 
-        // 末尾のカードをあらかじめ先頭に移動しておく
-        const lastCard = track.lastElementChild;
-        track.insertBefore(lastCard, track.firstElementChild);
-        cards = Array.from(track.querySelectorAll('.illust-card'));
-
-        // 一瞬で左にオフセットした状態を作り、右へスライドインさせる
-        track.style.transition = 'none';
-        track.style.transform = `translateX(-${moveAmount}px)`;
-
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
-                track.style.transform = 'translateX(0)';
-            });
-        });
+        track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+        track.style.transform = `translateX(-${baseOffset - step}px)`;
 
         setTimeout(() => {
+            track.style.transition = 'none';
+            // 末尾カードを先頭へ移動
+            track.insertBefore(track.lastElementChild, track.firstElementChild);
+            cards = Array.from(track.querySelectorAll('.illust-card'));
+            // 基準位置に戻す
+            track.style.transform = `translateX(-${getBaseOffset()}px)`;
+
             updateDots(currentDotIndex - 1);
             isAnimating = false;
         }, 600);
     }
 
-    // 自動再生の制御
     function startAutoPlay() {
         stopAutoPlay();
-        autoTimer = setInterval(() => {
-            slideLeft();
-        }, intervalMs);
+        autoTimer = setInterval(slideLeft, intervalMs);
     }
 
     function stopAutoPlay() {
@@ -485,7 +501,6 @@ document.addEventListener('DOMContentLoaded', function () {
         startAutoPlay();
     }
 
-    // ボタン操作
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
             slideLeft();
@@ -500,11 +515,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // マウスホバー中は自動スライドを一時停止
     wrapper.addEventListener('mouseenter', stopAutoPlay);
     wrapper.addEventListener('mouseleave', startAutoPlay);
 
-    // スマホのスワイプ操作対応
+    // スマホのスワイプ対応
     let touchStartX = 0;
     track.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
@@ -523,7 +537,15 @@ document.addEventListener('DOMContentLoaded', function () {
         startAutoPlay();
     });
 
+    // 画面幅変更時に中央位置を再計算
+    window.addEventListener('resize', () => {
+        if (!isAnimating) {
+            setInitialPosition();
+        }
+    });
+
     // 初期化
     buildDots();
+    setInitialPosition();
     startAutoPlay();
 });
