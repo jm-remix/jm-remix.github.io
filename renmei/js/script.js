@@ -1,40 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const menuToggle = document.getElementById('menuToggle');
-    const mainNav = document.getElementById('mainNav');
-
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', function () {
-            mainNav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-
-        const navLinks = mainNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-                menuToggle.classList.remove('active');
-            });
-        });
-    }
-
-    const fadeElements = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -30px 0px'
-    });
-
-    fadeElements.forEach(el => observer.observe(el));
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
     /* =========================================
        1. ハンバーガーメニュー
        ========================================= */
@@ -95,8 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
     /* =========================================
        4. 教会一覧 モーダル表示
        ========================================= */
-    // 各教会の情報（hrefのファイル名をキーにしています）
-    // ※ url と email はどちらか一方（または両方ある場合は url 優先）が表示されます
     const CHURCH_DATA = {
         'kakukyoukai/sorachi.html': {
             name: '空知太栄光キリスト教会',
@@ -282,7 +244,6 @@ document.addEventListener('DOMContentLoaded', function () {
             email: ''
         };
 
-        // 教会名・サブタイトル
         modalChurchName.textContent = data.name || fallbackName;
         if (data.sub) {
             modalChurchSub.textContent = data.sub;
@@ -291,7 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
             modalChurchSub.style.display = 'none';
         }
 
-        // 画像
         if (data.image) {
             modalChurchImg.src = data.image;
             modalChurchImg.alt = data.name + 'の外観・内観';
@@ -300,7 +260,6 @@ document.addEventListener('DOMContentLoaded', function () {
             modalImgWrap.style.display = 'none';
         }
 
-        // 住所
         if (data.address) {
             modalAddress.textContent = data.address;
             modalAddressRow.style.display = 'flex';
@@ -308,7 +267,6 @@ document.addEventListener('DOMContentLoaded', function () {
             modalAddressRow.style.display = 'none';
         }
 
-        // 電話番号
         if (data.tel) {
             modalTel.textContent = data.tel;
             modalTel.href = 'tel:' + data.tel.replace(/[^0-9+]/g, '');
@@ -317,7 +275,6 @@ document.addEventListener('DOMContentLoaded', function () {
             modalTelRow.style.display = 'none';
         }
 
-        // サイト または メール
         if (data.url) {
             modalWebLabel.textContent = 'サイト';
             modalWeb.textContent = data.url;
@@ -336,7 +293,6 @@ document.addEventListener('DOMContentLoaded', function () {
             modalWebRow.style.display = 'none';
         }
 
-        // 元の詳細ページリンク
         if (href) {
             modalDetailLink.href = href;
             modalDetailLink.style.display = 'inline-block';
@@ -356,7 +312,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = '';
     }
 
-    // 教会ボタンのクリックイベント
     const churchItems = document.querySelectorAll('.church-item');
     churchItems.forEach(item => {
         item.addEventListener('click', function (e) {
@@ -370,7 +325,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 閉じる操作（×ボタン・背景クリック・Escキー）
     if (modalClose) modalClose.addEventListener('click', closeChurchModal);
     if (modalBackdrop) modalBackdrop.addEventListener('click', closeChurchModal);
     document.addEventListener('keydown', function (e) {
